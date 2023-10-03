@@ -1,6 +1,6 @@
 class AppStrings {
   AppStrings._();
-  static const String kAppTitle = "To Do";
+  static const String kAppTitle = 'Hypernym Internal Mobile App';
   static const String kSignIn = 'Sign In';
   static const String kSignUp = 'Sign Up';
   static const String kLogIn = 'Log In';

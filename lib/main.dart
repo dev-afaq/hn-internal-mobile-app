@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'hn_internal_mobile_app.dart';
+import 'src/src.dart';
 
 void main() {
   runApp(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'src.dart';
 
 class HnInternalMobileApp extends StatelessWidget {
   const HnInternalMobileApp({super.key});
@@ -6,14 +7,11 @@ class HnInternalMobileApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Hypernym Internal Mobile App',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.deepPurple,
-        ),
-        useMaterial3: true,
-      ),
+      title: AppStrings.kAppTitle,
+      theme: AppTheme.appTheme,
       debugShowCheckedModeBanner: false,
+      initialRoute: Routes.initialRoute,
+      onGenerateRoute: RoutesGenerator.generateRoute,
     );
   }
 }
