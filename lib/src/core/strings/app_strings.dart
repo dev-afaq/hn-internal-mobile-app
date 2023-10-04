@@ -1,7 +1,10 @@
 class AppStrings {
   AppStrings._();
   static const String kAppTitle = 'Hypernym Internal Mobile App';
+  static const String kOr = 'OR';
   static const String kSignIn = 'Sign In';
+  static const String kFaceIdLogIn = 'Login with Face ID';
+  static const String kFaceIdAuth = "Face ID Authentication";
   static const String kSignUp = 'Sign Up';
   static const String kLogIn = 'Log In';
   static const String kLogOut = 'Log Out';
@@ -24,4 +27,9 @@ class AppStrings {
   static const String kUsername = "@username";
   static const String kEnterNumber = "Enter your phone number";
   static const String kConfirmPassword = "Confirm Password";
+  static const String kLastName = "Last Name";
+  static const String kFirstName = "First Name";
+  static const String kUploadPic = "Upload Picture";
+  static const String kUseFaceId = "Use Face ID to Login";
+  static const String kUseFingerPrint = "Use Finger Print to Login";
 }

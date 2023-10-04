@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hn_internal_mobile_app/src/features/splash/presentation/cubit/splash_cubit.dart';
-import 'package:hn_internal_mobile_app/src/features/splash/presentation/presentation.dart';
-import '../../src.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hn_internal_mobile_app/src/features/splash/presentation/cubit/splash_cubit.dart';
+import '../../src.dart';
 
 class RoutesGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -17,8 +16,15 @@ class RoutesGenerator {
       case Routes.signIn:
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
-            create: (context) => SplashCubit(),
-            child: const Scaffold(),
+            create: (context) => SignInCubit(),
+            child: const SignInScreen(),
+          ),
+        );
+      case Routes.signUp:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => SignUpCubit(),
+            child: const SignUpScreen(),
           ),
         );
       default:

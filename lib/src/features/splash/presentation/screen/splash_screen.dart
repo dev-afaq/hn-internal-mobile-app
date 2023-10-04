@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hn_internal_mobile_app/src/features/splash/presentation/cubit/splash_cubit.dart';
-import '../../../../../src.dart';
+import '../../../../src.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -17,14 +17,8 @@ class SplashScreen extends StatelessWidget {
           }
         },
         builder: (context, state) {
-          return const Center(
-            child: Text(
-              AppStrings.kAppTitle,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: FontSizes.s16,
-              ),
-            ),
+          return Center(
+            child: Image.asset(Assets.appLogo.name.png),
           );
         },
       ),

@@ -10,7 +10,7 @@ class AppTheme {
     ),
     useMaterial3: true,
     primarySwatch: AppColors.lightThemeColor,
-    // fontFamily: 'Nunito',
+    fontFamily: 'Inter',
   );
 
   static ThemeData get appTheme => _appTheme;
