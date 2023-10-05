@@ -16,3 +16,10 @@ enum HttpMethods {
 
   const HttpMethods(this.name);
 }
+
+enum Assets {
+  faceId,
+  appLogo,
+  personAvatar,
+  fingerPrint,
+}
