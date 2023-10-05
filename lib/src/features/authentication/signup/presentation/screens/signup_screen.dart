@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hn_internal_mobile_app/src/features/authentication/signup/presentation/widgets/custom_elevated_button_Icon.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 import '../../../../../src.dart';
@@ -69,15 +68,33 @@ class SignUpScreen extends StatelessWidget {
                                   showModalBottomSheet(
                                     context: context,
                                     builder: (context) {
-                                      return const Column(
-                                        children: [
-                                          CustomElevatedButtonIcon(
-                                            label: "Camera",
-                                            icon: Icon(Icons.camera_alt),
+                                      return Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: <Widget>[
+                                          BottomSheetListTile(
+                                            icon: Icons.camera_alt,
+                                            label: "Take Picture from Camera",
+                                            onTap: () {},
+                                            color: AppColors.primaryColor,
                                           ),
-                                          CustomElevatedButtonIcon(
-                                            label: "Camera",
-                                            icon: Icon(Icons.camera_alt),
+                                          BottomSheetListTile(
+                                            icon: Icons.image,
+                                            label: "Select from Gallery",
+                                            onTap: () {},
+                                            color: AppColors.primaryColor,
+                                          ),
+                                          const Divider(
+                                            color: AppColors.greyColor,
+                                            height: 5,
+                                            thickness: 1,
+                                            indent: 50,
+                                            endIndent: 50,
+                                          ),
+                                          BottomSheetListTile(
+                                            icon: Icons.clear,
+                                            label: "Cancel",
+                                            onTap: () {},
+                                            color: AppColors.redColor,
                                           ),
                                         ],
                                       );

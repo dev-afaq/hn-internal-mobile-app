@@ -9,10 +9,10 @@ class FontSizes {
   static const s20 = 20.0;
   static const s14 = 14.0;
   static const s16 = 16.0;
+  static const s18 = 18.0;
   static const s24 = 24.0;
   static const s32 = 32.0;
   static const s40 = 40.0;
   static const s48 = 48.0;
   static const s56 = 56.0;
-
 }
