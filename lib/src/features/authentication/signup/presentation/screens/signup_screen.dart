@@ -13,7 +13,33 @@ class SignUpScreen extends StatelessWidget {
       listener: (
         context,
         state,
-      ) {},
+      ) {
+        final cubit = context.read<SignUpCubit>();
+        switch (state.status) {
+          case RequestStatus.success:
+            Helpers.showCustomDialog(
+              context: context,
+              title: AppStrings.kVerifyEmail,
+              contentText: AppStrings.kEmailSent,
+              buttonText: AppStrings.kOk,
+              contentBelow: cubit.signUpForm.control('email').value,
+              onPressed: () {
+                Navigator.pushNamedAndRemoveUntil(
+                    context, Routes.signIn, (route) => false);
+              },
+            );
+            break;
+          case RequestStatus.failure:
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(state.message),
+              ),
+            );
+            break;
+          default:
+            break;
+        }
+      },
       builder: (
         context,
         state,
@@ -73,13 +99,13 @@ class SignUpScreen extends StatelessWidget {
                                         children: <Widget>[
                                           BottomSheetListTile(
                                             icon: Icons.camera_alt,
-                                            label: "Take Picture from Camera",
+                                            label: AppStrings.kCamera,
                                             onTap: () {},
                                             color: AppColors.primaryColor,
                                           ),
                                           BottomSheetListTile(
                                             icon: Icons.image,
-                                            label: "Select from Gallery",
+                                            label: AppStrings.kGallery,
                                             onTap: () {},
                                             color: AppColors.primaryColor,
                                           ),
@@ -92,7 +118,7 @@ class SignUpScreen extends StatelessWidget {
                                           ),
                                           BottomSheetListTile(
                                             icon: Icons.clear,
-                                            label: "Cancel",
+                                            label: AppStrings.kCancel,
                                             onTap: () {},
                                             color: AppColors.redColor,
                                           ),

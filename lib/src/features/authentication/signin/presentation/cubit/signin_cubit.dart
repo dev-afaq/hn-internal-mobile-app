@@ -25,4 +25,11 @@ class SignInCubit extends Cubit<SignInState> {
       ),
     },
   );
+  passwordHideShow() {
+    emit(
+      state.copyWith(
+        obscureText: !state.obscureText,
+      ),
+    );
+  }
 }

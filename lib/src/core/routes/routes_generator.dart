@@ -27,6 +27,13 @@ class RoutesGenerator {
             child: const SignUpScreen(),
           ),
         );
+      case Routes.empHomeScreen:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => EmpCubit(),
+            child: const EmpHomeScreen(),
+          ),
+        );
       default:
         return MaterialPageRoute(
           builder: (context) => const Scaffold(),

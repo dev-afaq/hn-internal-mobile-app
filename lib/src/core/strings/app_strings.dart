@@ -1,6 +1,7 @@
 class AppStrings {
   AppStrings._();
-  static const String kAppTitle = 'Hypernym Internal Mobile App';
+  static const String kAppTitle = 'HyperNym Internal Mobile App';
+  static const String kCompanyName = 'HyperNym';
   static const String kOr = 'OR';
   static const String kSignIn = 'Sign In';
   static const String kFaceIdLogIn = 'Login with Face ID';
@@ -22,6 +23,7 @@ class AppStrings {
   static const String kEnterEmail = "Enter your email";
   static const String kEnterPassword = "Enter Password";
   static const String kYes = "Yes";
+  static const String kCancel = "Cancel";
   static const String kNo = "No";
   static const String kOk = "OK";
   static const String kUsername = "@username";
@@ -32,4 +34,6 @@ class AppStrings {
   static const String kUploadPic = "Upload Picture";
   static const String kUseFaceId = "Use Face ID to Login";
   static const String kUseFingerPrint = "Use Finger Print to Login";
+  static const String kCamera = "Take Picture from Camera";
+  static const String kGallery = "Select from Gallery";
 }

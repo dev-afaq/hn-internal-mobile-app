@@ -12,16 +12,21 @@ class CustomReactiveTextField extends StatelessWidget {
     this.valueAccessor,
     this.hintText = "",
     this.keyboardType,
+    this.prefixIcon,
+    this.suffixIcon,
+    this.obscureText,
   });
 
   final TextInputType? keyboardType;
+  final Icon? prefixIcon;
+  final Widget? suffixIcon;
   final bool readOnly;
   final Function(FormControl)? onTap;
   final ControlValueAccessor<String, String>? valueAccessor;
   final String formControlName;
   final String hintText;
   final int maxLines;
-
+  final bool? obscureText;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -30,6 +35,7 @@ class CustomReactiveTextField extends StatelessWidget {
         cursorColor: AppColors.primaryColor,
         formControlName: formControlName,
         keyboardType: keyboardType,
+        obscureText: obscureText ?? false,
         decoration: InputDecoration(
           enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: AppColors.greyColor),
@@ -59,7 +65,7 @@ class CustomReactiveTextField extends StatelessWidget {
           ),
           suffixIcon: (formControlName == 'date')
               ? const Icon(Icons.calendar_month)
-              : null,
+              : suffixIcon,
           hintText: hintText,
         ),
         maxLines: maxLines,

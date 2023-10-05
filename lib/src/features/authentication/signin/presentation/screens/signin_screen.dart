@@ -65,9 +65,20 @@ class SignInScreen extends StatelessWidget {
                     const SizedBox(
                       height: Sizes.s16,
                     ),
-                    const CustomReactiveTextField(
+                    CustomReactiveTextField(
                       formControlName: 'password',
                       hintText: AppStrings.kEnterPassword,
+                      obscureText: state.obscureText,
+                      suffixIcon: InkWell(
+                        onTap: () {
+                          cubit.passwordHideShow();
+                        },
+                        child: Icon(
+                          state.obscureText
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                        ),
+                      ),
                     ),
                     const SizedBox(
                       height: Sizes.s16,
@@ -80,7 +91,10 @@ class SignInScreen extends StatelessWidget {
                         builder: (_, formGroup, __) {
                           return CustomElevatedButton(
                             label: AppStrings.kLogIn,
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pushNamedAndRemoveUntil(context,
+                                  Routes.empHomeScreen, (route) => false);
+                            },
                           );
                         },
                       ),
