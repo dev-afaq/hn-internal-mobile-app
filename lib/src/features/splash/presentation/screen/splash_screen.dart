@@ -9,18 +9,16 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocConsumer<SplashCubit, SplashState>(
+      body: BlocListener<SplashCubit, SplashState>(
         listener: (context, state) {
           if (state.status == RequestStatus.success) {
             Navigator.pushNamedAndRemoveUntil(
                 context, Routes.signIn, (route) => false);
           }
         },
-        builder: (context, state) {
-          return Center(
-            child: Image.asset(Assets.appLogo.name.png),
-          );
-        },
+        child: Center(
+          child: Image.asset(Assets.appLogo.name.png),
+        ),
       ),
     );
   }
