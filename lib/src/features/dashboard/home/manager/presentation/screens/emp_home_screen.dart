@@ -3,12 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../src.dart';
 
-class EmpHomeScreen extends StatelessWidget {
-  const EmpHomeScreen({super.key});
+class ManagerHomeScreen extends StatelessWidget {
+  const ManagerHomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<EmpHomeCubit, EmpHomeState>(
+    return BlocBuilder<ManagerHomeCubit, ManagerHomeState>(
       builder: (context, state) {
         return Scaffold(
           backgroundColor: AppColors.lightThemeColor[100],
@@ -83,8 +83,8 @@ class EmpHomeScreen extends StatelessWidget {
                     Expanded(
                       child: CustomTileHome(
                         onTap: () {},
-                        title: AppStrings.kApplyLeave,
-                        description: AppStrings.kApplyLeaveDesc,
+                        title: AppStrings.kManageLeaves,
+                        description: AppStrings.kManageLeavesDesc,
                       ),
                     ),
                     Container(
@@ -97,8 +97,8 @@ class EmpHomeScreen extends StatelessWidget {
                     Expanded(
                       child: CustomTileHome(
                         onTap: () {},
-                        title: AppStrings.kApplyReimbursement,
-                        description: AppStrings.kApplyReimbursementDesc,
+                        title: AppStrings.kManageReimbursement,
+                        description: AppStrings.kManageReimbursementDesc,
                       ),
                     ),
                   ],

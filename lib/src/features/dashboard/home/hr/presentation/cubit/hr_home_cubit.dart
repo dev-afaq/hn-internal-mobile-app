@@ -1,11 +1,11 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 
-part 'emp_state.dart';
+part 'hr_home_state.dart';
 
-class EmpCubit extends Cubit<EmpState> {
-  EmpCubit()
+class HrHomeCubit extends Cubit<HrHomeState> {
+  HrHomeCubit()
       : super(
-          const EmpState(),
+          const HrHomeState(),
         );
 }

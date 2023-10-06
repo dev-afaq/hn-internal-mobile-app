@@ -22,4 +22,6 @@ enum Assets {
   appLogo,
   personAvatar,
   fingerPrint,
+  leaveIcon,
+  expenseIcon,
 }

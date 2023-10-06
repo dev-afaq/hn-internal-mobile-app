@@ -9,6 +9,7 @@ class AppStrings {
   static const String kSignUp = 'Sign Up';
   static const String kLogIn = 'Log In';
   static const String kLogOut = 'Log Out';
+  static const String kViewProfile = 'Log Out';
   static const String done = "Done";
   static const String pending = "Pending";
   static const String kToolTip = 'Create new form';
@@ -36,4 +37,17 @@ class AppStrings {
   static const String kUseFingerPrint = "Use Finger Print to Login";
   static const String kCamera = "Take Picture from Camera";
   static const String kGallery = "Select from Gallery";
+  static const String kApplyLeave = "Apply Leave";
+  static const String kApplyReimbursement = "Apply Expense Reimbursements";
+  static const String kManageLeaves = "Manage Leaves";
+  static const String kManageReimbursement = "Manage Reimbursements";
+  static const String kMyName = "Huzaifa Zameer";
+  static const String kApplyLeaveDesc =
+      "Tap to apply leave and describe your issue well";
+  static const String kApplyReimbursementDesc =
+      "Tap to apply reimbursements and describe your issue well";
+  static const String kManageLeavesDesc = "Tap to see leave applications";
+  static const String kManageReimbursementDesc =
+      "Tap to see reimbursement applications";
+  static const String kHi = "Hi,";
 }

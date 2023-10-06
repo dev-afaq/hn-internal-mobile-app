@@ -3,12 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../src.dart';
 
-class EmpHomeScreen extends StatelessWidget {
-  const EmpHomeScreen({super.key});
+class FinanceHomeScreen extends StatelessWidget {
+  const FinanceHomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<EmpHomeCubit, EmpHomeState>(
+    return BlocBuilder<FinanceHomeCubit, FinanceHomeState>(
       builder: (context, state) {
         return Scaffold(
           backgroundColor: AppColors.lightThemeColor[100],
@@ -35,13 +35,21 @@ class EmpHomeScreen extends StatelessWidget {
                   height: 30.0,
                 ),
                 ListTile(
-                  title: const Text(AppStrings.kLogOut),
-                  leading: const Icon(Icons.logout),
+                  title: const Text(
+                    AppStrings.kLogOut,
+                  ),
+                  leading: const Icon(
+                    Icons.logout,
+                  ),
                   onTap: () {},
                 ),
                 ListTile(
-                  title: const Text(AppStrings.kViewProfile),
-                  leading: const Icon(Icons.person),
+                  title: const Text(
+                    AppStrings.kViewProfile,
+                  ),
+                  leading: const Icon(
+                    Icons.person,
+                  ),
                   onTap: () {},
                 ),
               ],
@@ -78,30 +86,12 @@ class EmpHomeScreen extends StatelessWidget {
                 const SizedBox(
                   height: Sizes.s64,
                 ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: CustomTileHome(
-                        onTap: () {},
-                        title: AppStrings.kApplyLeave,
-                        description: AppStrings.kApplyLeaveDesc,
-                      ),
-                    ),
-                    Container(
-                      width: Sizes.s2,
-                      height: Sizes.s184,
-                      color: AppColors.greyColor.withOpacity(
-                        0.5,
-                      ),
-                    ),
-                    Expanded(
-                      child: CustomTileHome(
-                        onTap: () {},
-                        title: AppStrings.kApplyReimbursement,
-                        description: AppStrings.kApplyReimbursementDesc,
-                      ),
-                    ),
-                  ],
+                Center(
+                  child: CustomTileHome(
+                    onTap: () {},
+                    title: AppStrings.kManageReimbursement,
+                    description: AppStrings.kManageReimbursementDesc,
+                  ),
                 ),
               ],
             ),

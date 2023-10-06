@@ -30,8 +30,15 @@ class RoutesGenerator {
       case Routes.empHomeScreen:
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
-            create: (context) => EmpCubit(),
+            create: (context) => EmpHomeCubit(),
             child: const EmpHomeScreen(),
+          ),
+        );
+      case Routes.financeHomeScreen:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => FinanceHomeCubit(),
+            child: const FinanceHomeScreen(),
           ),
         );
       default:
