@@ -40,32 +40,40 @@ class CustomReactiveTextField extends StatelessWidget {
           enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: AppColors.greyColor),
             borderRadius: BorderRadius.all(
-              Radius.circular(Sizes.s32),
+              Radius.circular(
+                Sizes.s16,
+              ),
             ),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(Sizes.s32),
+            borderRadius: BorderRadius.circular(
+              Sizes.s16,
+            ),
             borderSide: BorderSide(
               color: readOnly ? AppColors.greyColor : AppColors.primaryColor,
             ),
           ),
           disabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(Sizes.s32),
+            borderRadius: BorderRadius.circular(
+              Sizes.s16,
+            ),
             borderSide: const BorderSide(
               color: AppColors.greyColor,
             ),
           ),
           errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(Sizes.s32),
+            borderRadius: BorderRadius.circular(
+              Sizes.s16,
+            ),
             borderSide: const BorderSide(color: AppColors.redColor),
           ),
           focusedErrorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(Sizes.s32),
+            borderRadius: BorderRadius.circular(
+              Sizes.s16,
+            ),
             borderSide: const BorderSide(color: AppColors.redColor),
           ),
-          suffixIcon: (formControlName == 'date')
-              ? const Icon(Icons.calendar_month)
-              : suffixIcon,
+          suffixIcon: suffixIcon,
           hintText: hintText,
         ),
         maxLines: maxLines,

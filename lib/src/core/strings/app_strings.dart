@@ -1,15 +1,17 @@
 class AppStrings {
   AppStrings._();
   static const String kAppTitle = 'HyperNym Internal Mobile App';
+  static const String kAppTitleDrawer = 'HyperNym Internal \nMobile App';
   static const String kCompanyName = 'HyperNym';
   static const String kOr = 'OR';
+  static const String kDuration = 'Duration';
   static const String kSignIn = 'Sign In';
   static const String kFaceIdLogIn = 'Login with Face ID';
   static const String kFaceIdAuth = "Face ID Authentication";
   static const String kSignUp = 'Sign Up';
   static const String kLogIn = 'Log In';
   static const String kLogOut = 'Log Out';
-  static const String kViewProfile = 'Log Out';
+  static const String kViewProfile = 'View Profile';
   static const String done = "Done";
   static const String pending = "Pending";
   static const String kToolTip = 'Create new form';

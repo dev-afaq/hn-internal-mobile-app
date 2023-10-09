@@ -6,4 +6,5 @@ class Routes {
   static const String signIn = '/sign_in_screen';
   static const String signUp = '/sign_up_screen';
   static const String financeHomeScreen = '/finance_home_screen';
+  static const String empLeaveScreen = '/emp_leave_screen';
 }

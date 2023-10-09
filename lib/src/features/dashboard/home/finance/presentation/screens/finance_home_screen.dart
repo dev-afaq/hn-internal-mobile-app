@@ -28,32 +28,16 @@ class FinanceHomeScreen extends StatelessWidget {
               ),
             ],
           ),
-          drawer: Drawer(
-            child: ListView(
-              children: [
-                const SizedBox(
-                  height: 30.0,
-                ),
-                ListTile(
-                  title: const Text(
-                    AppStrings.kLogOut,
-                  ),
-                  leading: const Icon(
-                    Icons.logout,
-                  ),
-                  onTap: () {},
-                ),
-                ListTile(
-                  title: const Text(
-                    AppStrings.kViewProfile,
-                  ),
-                  leading: const Icon(
-                    Icons.person,
-                  ),
-                  onTap: () {},
-                ),
-              ],
-            ),
+          drawer: CustomDrawer(
+            onTapLogOut: () {
+              Helpers.showLogoutDialog(
+                context: context,
+                title: AppStrings.kLogoutDialog,
+                onLogout: () {},
+                onNo: () {},
+              );
+            },
+            onTapProfile: () {},
           ),
           body: Padding(
             padding: const EdgeInsets.only(

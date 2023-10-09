@@ -25,4 +25,22 @@ class Helpers {
       },
     );
   }
+
+  static Future<void> showLogoutDialog({
+    required BuildContext context,
+    required String title,
+    required VoidCallback onLogout,
+    required VoidCallback onNo,
+  }) async {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return CustomLogoutDialog(
+          title: title,
+          onLogout: onLogout,
+          onNo: onNo,
+        );
+      },
+    );
+  }
 }

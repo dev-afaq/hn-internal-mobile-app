@@ -1,1 +1,1 @@
-export 'emp_home_screen.dart';
+export 'manager_home_screen.dart';

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../../../src.dart';
 
 class EmpHomeScreen extends StatelessWidget {
@@ -28,24 +27,16 @@ class EmpHomeScreen extends StatelessWidget {
               ),
             ],
           ),
-          drawer: Drawer(
-            child: ListView(
-              children: [
-                const SizedBox(
-                  height: 30.0,
-                ),
-                ListTile(
-                  title: const Text(AppStrings.kLogOut),
-                  leading: const Icon(Icons.logout),
-                  onTap: () {},
-                ),
-                ListTile(
-                  title: const Text(AppStrings.kViewProfile),
-                  leading: const Icon(Icons.person),
-                  onTap: () {},
-                ),
-              ],
-            ),
+          drawer: CustomDrawer(
+            onTapLogOut: () {
+              Helpers.showLogoutDialog(
+                context: context,
+                title: AppStrings.kLogoutDialog,
+                onLogout: () {},
+                onNo: () {},
+              );
+            },
+            onTapProfile: () {},
           ),
           body: Padding(
             padding: const EdgeInsets.only(
@@ -82,7 +73,12 @@ class EmpHomeScreen extends StatelessWidget {
                   children: [
                     Expanded(
                       child: CustomTileHome(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            Routes.empLeaveScreen,
+                          );
+                        },
                         title: AppStrings.kApplyLeave,
                         description: AppStrings.kApplyLeaveDesc,
                       ),

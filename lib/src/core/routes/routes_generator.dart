@@ -41,6 +41,13 @@ class RoutesGenerator {
             child: const FinanceHomeScreen(),
           ),
         );
+      case Routes.empLeaveScreen:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => EmpLeaveCubit(),
+            child: const EmpLeaveScreen(),
+          ),
+        );
       default:
         return MaterialPageRoute(
           builder: (context) => const Scaffold(),

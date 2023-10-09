@@ -30,4 +30,13 @@ class Sizes {
   static const s168 = 168.0;
   static const s176 = 176.0;
   static const s184 = 184.0;
+  static const s192 = 192.0;
+  static const s200 = 200.0;
+  static const s208 = 208.0;
+  static const s216 = 216.0;
+  static const s224 = 224.0;
+  static const s324 = 324.0;
+  static const s424 = 424.0;
+  static const s500 = 500.0;
+  static const s524 = 524.0;
 }
