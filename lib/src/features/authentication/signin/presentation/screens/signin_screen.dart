@@ -93,7 +93,7 @@ class SignInScreen extends StatelessWidget {
                             label: AppStrings.kLogIn,
                             onPressed: () {
                               Navigator.pushNamedAndRemoveUntil(context,
-                                  Routes.empHomeScreen, (route) => false);
+                                  Routes.hrHomeScreen, (route) => false);
                             },
                           );
                         },

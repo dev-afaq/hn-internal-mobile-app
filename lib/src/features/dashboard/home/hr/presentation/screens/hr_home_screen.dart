@@ -72,7 +72,12 @@ class HrHomeScreen extends StatelessWidget {
                 ),
                 Center(
                   child: CustomTileHome(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context,
+                        Routes.hrLeaveScreen,
+                      );
+                    },
                     title: AppStrings.kManageLeaves,
                     description: AppStrings.kManageLeavesDesc,
                   ),

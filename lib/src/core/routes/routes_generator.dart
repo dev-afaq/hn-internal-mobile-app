@@ -34,6 +34,13 @@ class RoutesGenerator {
             child: const EmpHomeScreen(),
           ),
         );
+      case Routes.hrHomeScreen:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => HrHomeCubit(),
+            child: const HrHomeScreen(),
+          ),
+        );
       case Routes.financeHomeScreen:
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
@@ -41,11 +48,25 @@ class RoutesGenerator {
             child: const FinanceHomeScreen(),
           ),
         );
+      case Routes.managerHomeScreen:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => ManagerHomeCubit(),
+            child: const ManagerHomeScreen(),
+          ),
+        );
       case Routes.empLeaveScreen:
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
             create: (context) => EmpLeaveCubit(),
             child: const EmpLeaveScreen(),
+          ),
+        );
+      case Routes.hrLeaveScreen:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => HrLeaveCubit(),
+            child: const HrLeaveScreen(),
           ),
         );
       default:

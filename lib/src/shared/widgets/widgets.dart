@@ -7,3 +7,4 @@ export 'custom_logout_dialog.dart';
 export 'field_title.dart';
 export 'custom_date_picker.dart';
 export 'custom_dropdown.dart';
+export 'custom_heading.dart';

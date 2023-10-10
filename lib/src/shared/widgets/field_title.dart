@@ -15,7 +15,7 @@ class FieldTitle extends StatelessWidget {
         style: const TextStyle(
           color: AppColors.primaryColor,
           fontWeight: FontWeight.bold,
-          fontSize: FontSizes.s14,
+          fontSize: FontSizes.s16,
         ),
       ),
     );

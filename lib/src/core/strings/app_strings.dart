@@ -11,6 +11,7 @@ class AppStrings {
   static const String kSignUp = 'Sign Up';
   static const String kLogIn = 'Log In';
   static const String kLogOut = 'Log Out';
+
   static const String kViewProfile = 'View Profile';
   static const String done = "Done";
   static const String pending = "Pending";
@@ -26,6 +27,7 @@ class AppStrings {
   static const String kEnterEmail = "Enter your email";
   static const String kEnterPassword = "Enter Password";
   static const String kYes = "Yes";
+  static const String kSubmitApplication = "Submit Application";
   static const String kCancel = "Cancel";
   static const String kNo = "No";
   static const String kOk = "OK";
@@ -51,5 +53,13 @@ class AppStrings {
   static const String kManageLeavesDesc = "Tap to see leave applications";
   static const String kManageReimbursementDesc =
       "Tap to see reimbursement applications";
+  static const String kLeavesSummary = "Leaves Summary";
+  static const String kTotalLeaves = "Total Leaves";
   static const String kHi = "Hi,";
+  static const String kAvailableLeaves = "Available Leaves";
+  static const String kApplyLeaveHere = "Apply Your Leave Here";
+  static const String kFrom = "From:";
+  static const String kTo = "To:";
+  static const String kManager = "Manager";
+  static const String kSelectManager = "Select Your Manager";
 }

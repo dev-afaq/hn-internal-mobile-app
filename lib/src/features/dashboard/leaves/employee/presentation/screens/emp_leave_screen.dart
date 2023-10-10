@@ -25,8 +25,43 @@ class EmpLeaveScreen extends StatelessWidget {
           body: ReactiveForm(
             formGroup: cubit.leaveForm,
             child: ListView(
-              padding: const EdgeInsets.all(Sizes.s15),
+              padding: const EdgeInsets.all(
+                Sizes.s20,
+              ),
               children: [
+                const CustomHeading(
+                  heading: AppStrings.kLeavesSummary,
+                ),
+                const SizedBox(
+                  height: Sizes.s16,
+                ),
+                const LeaveSummaryContainer(
+                  total: "12",
+                  available: "12",
+                  heading1: AppStrings.kTotalLeaves,
+                  heading2: AppStrings.kAvailableLeaves,
+                ),
+                const SizedBox(
+                  height: Sizes.s16,
+                ),
+                Divider(
+                  color: AppColors.greyColor.withOpacity(
+                    0.5,
+                  ),
+                  indent: Sizes.s16,
+                  endIndent: Sizes.s16,
+                ),
+                const SizedBox(
+                  height: Sizes.s16,
+                ),
+                const Center(
+                  child: CustomHeading(
+                    heading: AppStrings.kApplyLeaveHere,
+                  ),
+                ),
+                const SizedBox(
+                  height: Sizes.s20,
+                ),
                 const Column(
                   children: [
                     FieldTitle(
@@ -59,7 +94,9 @@ class EmpLeaveScreen extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Text("From:"),
+                        Text(
+                          AppStrings.kFrom,
+                        ),
                         SizedBox(
                           width: Sizes.s12,
                         ),
@@ -72,7 +109,9 @@ class EmpLeaveScreen extends StatelessWidget {
                         SizedBox(
                           width: Sizes.s12,
                         ),
-                        Text("to:"),
+                        Text(
+                          AppStrings.kTo,
+                        ),
                         SizedBox(
                           width: Sizes.s12,
                         ),
@@ -88,11 +127,11 @@ class EmpLeaveScreen extends StatelessWidget {
                       height: Sizes.s12,
                     ),
                     FieldTitle(
-                      title: "Manager",
+                      title: AppStrings.kManager,
                     ),
                     CustomDropdown(
                       formControlName: "manager",
-                      hint: "Select Manager",
+                      hint: AppStrings.kSelectManager,
                       item1: "item1",
                       item2: "item2",
                       item3: "item3",
@@ -106,7 +145,7 @@ class EmpLeaveScreen extends StatelessWidget {
                   builder: (_, formGroup, __) {
                     return CustomElevatedButton(
                       onPressed: () {},
-                      label: "Submit Application",
+                      label: AppStrings.kSubmitApplication,
                     );
                   },
                 ),
