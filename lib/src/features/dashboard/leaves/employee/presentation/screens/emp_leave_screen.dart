@@ -62,84 +62,85 @@ class EmpLeaveScreen extends StatelessWidget {
                 const SizedBox(
                   height: Sizes.s20,
                 ),
-                const Column(
-                  children: [
-                    FieldTitle(
-                      title: AppStrings.kTitle,
-                    ),
-                    CustomReactiveTextField(
-                      formControlName: 'title',
-                    ),
-                  ],
+                const FieldTitle(
+                  title: AppStrings.kTitle,
+                ),
+                const CustomReactiveTextField(
+                  formControlName: 'title',
                 ),
                 const SizedBox(
                   height: Sizes.s12,
                 ),
-                const Column(
-                  children: [
-                    FieldTitle(title: AppStrings.kDescription),
-                    CustomReactiveTextField(
-                      formControlName: 'description',
-                      maxLines: 4,
-                    ),
-                  ],
+                const FieldTitle(title: AppStrings.kDescription),
+                const CustomReactiveTextField(
+                  formControlName: 'description',
+                  maxLines: 4,
                 ),
                 const SizedBox(
                   height: Sizes.s12,
                 ),
-                const Column(
+                const FieldTitle(
+                  title: AppStrings.kDuration,
+                ),
+                const Row(
                   children: [
-                    FieldTitle(
-                      title: AppStrings.kDuration,
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          AppStrings.kFrom,
-                        ),
-                        SizedBox(
-                          width: Sizes.s12,
-                        ),
-                        Expanded(
-                          child: CustomDatePicker(
-                            formControl: 'from_date',
-                            readOnly: false,
-                          ),
-                        ),
-                        SizedBox(
-                          width: Sizes.s12,
-                        ),
-                        Text(
-                          AppStrings.kTo,
-                        ),
-                        SizedBox(
-                          width: Sizes.s12,
-                        ),
-                        Expanded(
-                          child: CustomDatePicker(
-                            formControl: 'to_date',
-                            readOnly: false,
-                          ),
-                        ),
-                      ],
+                    Text(
+                      AppStrings.kFrom,
                     ),
                     SizedBox(
-                      height: Sizes.s12,
+                      width: Sizes.s12,
                     ),
-                    FieldTitle(
-                      title: AppStrings.kManager,
+                    Expanded(
+                      child: CustomDatePicker(
+                        formControl: 'from_date',
+                        readOnly: false,
+                      ),
                     ),
-                    CustomDropdown(
-                      formControlName: "manager",
-                      hint: AppStrings.kSelectManager,
-                      item1: "item1",
-                      item2: "item2",
-                      item3: "item3",
+                    SizedBox(
+                      width: Sizes.s12,
+                    ),
+                    Text(
+                      AppStrings.kTo,
+                    ),
+                    SizedBox(
+                      width: Sizes.s12,
+                    ),
+                    Expanded(
+                      child: CustomDatePicker(
+                        formControl: 'to_date',
+                        readOnly: false,
+                      ),
                     ),
                   ],
                 ),
                 const SizedBox(
-                  height: Sizes.s16,
+                  height: Sizes.s12,
+                ),
+                const FieldTitle(
+                  title: AppStrings.kLeaveType,
+                ),
+                const CustomDropdown(
+                  formControlName: "leave_type",
+                  hint: AppStrings.kLeaveType,
+                  item1: "Medical",
+                  item2: "Casual",
+                  item3: "Work From Home",
+                ),
+                const SizedBox(
+                  height: Sizes.s12,
+                ),
+                const FieldTitle(
+                  title: AppStrings.kManager,
+                ),
+                const CustomDropdown(
+                  formControlName: "manager",
+                  hint: AppStrings.kSelectManager,
+                  item1: "item1",
+                  item2: "item2",
+                  item3: "item3",
+                ),
+                const SizedBox(
+                  height: Sizes.s20,
                 ),
                 ReactiveFormConsumer(
                   builder: (_, formGroup, __) {

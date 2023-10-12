@@ -15,96 +15,87 @@ class ManagerLeaveScreen extends StatelessWidget {
           appBar: AppBar(
             centerTitle: true,
             title: const Text(
-              AppStrings.kCompanyName,
+              AppStrings.kManageLeaves,
             ),
             backgroundColor: AppColors.primaryColor,
             foregroundColor: AppColors.whiteColor,
-            actions: [
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.notification_add_rounded,
+          ),
+          body: ListView(
+            padding: const EdgeInsets.only(
+              left: Sizes.s16,
+              right: Sizes.s16,
+              bottom: Sizes.s16,
+            ),
+            children: [
+              const SizedBox(
+                height: Sizes.s32,
+              ),
+              const Center(
+                child: CustomHeading(
+                  heading: "Leaves Pending For Approval",
                 ),
               ),
+              Divider(
+                color: AppColors.greyColor.withOpacity(
+                  0.5,
+                ),
+                thickness: Sizes.s2,
+                indent: Sizes.s20,
+                endIndent: Sizes.s20,
+              ),
+              const SizedBox(
+                height: Sizes.s16,
+              ),
+              const LeaveApprovalCard(
+                hEmployeeName: AppStrings.kEmployeeName,
+                hReason: AppStrings.kReason,
+                hLeaveType: AppStrings.kLeaveType,
+                hDuration: AppStrings.kDuration,
+                employeeName: AppStrings.kMyName,
+                reason: "Reason for leave",
+                leaveType: "Medical/Casual/WFH",
+                duration: "duration",
+              ),
+              const SizedBox(
+                height: Sizes.s16,
+              ),
+              const LeaveApprovalCard(
+                hEmployeeName: AppStrings.kEmployeeName,
+                hReason: AppStrings.kReason,
+                hLeaveType: AppStrings.kLeaveType,
+                hDuration: AppStrings.kDuration,
+                employeeName: AppStrings.kMyName,
+                reason: "Reason for leave",
+                leaveType: "Medical/Casual/WFH",
+                duration: "duration",
+              ),
+              const SizedBox(
+                height: Sizes.s16,
+              ),
+              const LeaveApprovalCard(
+                hEmployeeName: AppStrings.kEmployeeName,
+                hReason: AppStrings.kReason,
+                hLeaveType: AppStrings.kLeaveType,
+                hDuration: AppStrings.kDuration,
+                employeeName: AppStrings.kMyName,
+                reason: "Reason for leave",
+                leaveType: "Medical/Casual/WFH",
+                duration: "duration",
+              ),
+              const SizedBox(
+                height: Sizes.s16,
+              ),
+              const LeaveApprovalCard(
+                hEmployeeName: AppStrings.kEmployeeName,
+                hReason: AppStrings.kReason,
+                hLeaveType: AppStrings.kLeaveType,
+                hDuration: AppStrings.kDuration,
+                employeeName: AppStrings.kMyName,
+                reason: "Reason for leave",
+                leaveType: "Medical/Casual/WFH",
+                duration: "duration",
+              ),
             ],
-          ),
-          drawer: Drawer(
-            child: ListView(
-              children: [
-                const SizedBox(
-                  height: 30.0,
-                ),
-                ListTile(
-                  title: const Text(AppStrings.kLogOut),
-                  leading: const Icon(Icons.logout),
-                  onTap: () {},
-                ),
-                ListTile(
-                  title: const Text(AppStrings.kViewProfile),
-                  leading: const Icon(Icons.person),
-                  onTap: () {},
-                ),
-              ],
-            ),
-          ),
-          body: Padding(
-            padding: const EdgeInsets.only(
-              left: Sizes.s20,
-              right: Sizes.s20,
-              top: Sizes.s32,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  AppStrings.kHi,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    color: AppColors.primaryColor,
-                    fontSize: FontSizes.s18,
-                  ),
-                ),
-                const SizedBox(
-                  height: Sizes.s16,
-                ),
-                const Text(
-                  AppStrings.kMyName,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    color: AppColors.primaryColor,
-                    fontSize: FontSizes.s24,
-                  ),
-                ),
-                const SizedBox(
-                  height: Sizes.s64,
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: CustomTileHome(
-                        onTap: () {},
-                        title: AppStrings.kManageLeaves,
-                        description: AppStrings.kManageLeavesDesc,
-                      ),
-                    ),
-                    Container(
-                      width: Sizes.s2,
-                      height: Sizes.s184,
-                      color: AppColors.greyColor.withOpacity(
-                        0.5,
-                      ),
-                    ),
-                    Expanded(
-                      child: CustomTileHome(
-                        onTap: () {},
-                        title: AppStrings.kManageReimbursement,
-                        description: AppStrings.kManageReimbursementDesc,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
           ),
         );
       },

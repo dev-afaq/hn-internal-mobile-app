@@ -11,7 +11,7 @@ class AppStrings {
   static const String kSignUp = 'Sign Up';
   static const String kLogIn = 'Log In';
   static const String kLogOut = 'Log Out';
-
+  static const String kLeaveType = 'Leave Type';
   static const String kViewProfile = 'View Profile';
   static const String done = "Done";
   static const String pending = "Pending";
@@ -62,4 +62,7 @@ class AppStrings {
   static const String kTo = "To:";
   static const String kManager = "Manager";
   static const String kSelectManager = "Select Your Manager";
+  static const String kEmployeeName = "Employee name";
+  static const String kApprovedBy = "Approved By";
+  static const String kReason = "Reason";
 }

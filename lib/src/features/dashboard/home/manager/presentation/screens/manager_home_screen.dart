@@ -74,7 +74,12 @@ class ManagerHomeScreen extends StatelessWidget {
                   children: [
                     Expanded(
                       child: CustomTileHome(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            Routes.managerLeaveScreen,
+                          );
+                        },
                         title: AppStrings.kManageLeaves,
                         description: AppStrings.kManageLeavesDesc,
                       ),

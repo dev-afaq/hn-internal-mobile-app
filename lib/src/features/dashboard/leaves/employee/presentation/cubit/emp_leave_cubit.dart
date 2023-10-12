@@ -34,6 +34,11 @@ class EmpLeaveCubit extends Cubit<EmpLeaveState> {
           Validators.required,
         ],
       ),
+      'leave_type': FormControl<int>(
+        validators: [
+          Validators.required,
+        ],
+      ),
     },
   );
 }

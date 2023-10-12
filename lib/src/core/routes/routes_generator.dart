@@ -69,6 +69,13 @@ class RoutesGenerator {
             child: const HrLeaveScreen(),
           ),
         );
+      case Routes.managerLeaveScreen:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => ManagerLeaveCubit(),
+            child: const ManagerLeaveScreen(),
+          ),
+        );
       default:
         return MaterialPageRoute(
           builder: (context) => const Scaffold(),

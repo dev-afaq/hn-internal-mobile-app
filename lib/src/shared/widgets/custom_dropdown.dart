@@ -22,7 +22,10 @@ class CustomDropdown extends StatelessWidget {
   Widget build(BuildContext context) {
     return ReactiveDropdownField(
       formControlName: formControlName,
-      hint: Text(hint),
+      hint: Text(
+        hint,
+      ),
+      dropdownColor: AppColors.lightThemeColor[300],
       decoration: InputDecoration(
         enabledBorder: const OutlineInputBorder(
           borderSide: BorderSide(color: AppColors.greyColor),
