@@ -65,4 +65,8 @@ class AppStrings {
   static const String kEmployeeName = "Employee name";
   static const String kApprovedBy = "Approved By";
   static const String kReason = "Reason";
+  static const String kApprove = "Approve";
+  static const String kReject = "Reject";
+  static const String kPendingApproval = "Leaves Pending For Approval";
+  static const String kReasonForLeave = "Reason For Leave";
 }

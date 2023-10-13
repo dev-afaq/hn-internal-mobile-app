@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:reactive_forms/reactive_forms.dart';
 
 import '../../../../../../src.dart';
 
@@ -10,6 +11,8 @@ class ManagerLeaveScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ManagerLeaveCubit, ManagerLeaveState>(
       builder: (context, state) {
+        final cubit = context.read<ManagerLeaveCubit>();
+
         return Scaffold(
           backgroundColor: AppColors.lightThemeColor[100],
           appBar: AppBar(
@@ -32,7 +35,7 @@ class ManagerLeaveScreen extends StatelessWidget {
               ),
               const Center(
                 child: CustomHeading(
-                  heading: "Leaves Pending For Approval",
+                  heading: AppStrings.kPendingApproval,
                 ),
               ),
               Divider(
@@ -46,7 +49,7 @@ class ManagerLeaveScreen extends StatelessWidget {
               const SizedBox(
                 height: Sizes.s16,
               ),
-              const LeaveApprovalCard(
+              LeaveApprovalCard(
                 hEmployeeName: AppStrings.kEmployeeName,
                 hReason: AppStrings.kReason,
                 hLeaveType: AppStrings.kLeaveType,
@@ -55,11 +58,49 @@ class ManagerLeaveScreen extends StatelessWidget {
                 reason: "Reason for leave",
                 leaveType: "Medical/Casual/WFH",
                 duration: "duration",
+                approveBtnTxt: AppStrings.kApprove,
+                rejectBtnTxt: AppStrings.kReject,
+                approveOnPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return ReactiveForm(
+                        formGroup: cubit.remarksForm,
+                        child: ApproveRejectDialog(
+                          title: "Approve Leave",
+                          formControlName: "remarks",
+                          onCancel: () {
+                            Navigator.of(context).pop();
+                          },
+                          onOk: () {},
+                        ),
+                      );
+                    },
+                  );
+                },
+                rejectOnPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return ReactiveForm(
+                        formGroup: cubit.remarksForm,
+                        child: ApproveRejectDialog(
+                          title: "Reject Leave",
+                          formControlName: "remarks",
+                          onCancel: () {
+                            Navigator.of(context).pop();
+                          },
+                          onOk: () {},
+                        ),
+                      );
+                    },
+                  );
+                },
               ),
               const SizedBox(
                 height: Sizes.s16,
               ),
-              const LeaveApprovalCard(
+              LeaveApprovalCard(
                 hEmployeeName: AppStrings.kEmployeeName,
                 hReason: AppStrings.kReason,
                 hLeaveType: AppStrings.kLeaveType,
@@ -68,11 +109,49 @@ class ManagerLeaveScreen extends StatelessWidget {
                 reason: "Reason for leave",
                 leaveType: "Medical/Casual/WFH",
                 duration: "duration",
+                approveBtnTxt: AppStrings.kApprove,
+                rejectBtnTxt: AppStrings.kReject,
+                approveOnPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return ReactiveForm(
+                        formGroup: cubit.remarksForm,
+                        child: ApproveRejectDialog(
+                          title: "Approve Leave",
+                          formControlName: "remarks",
+                          onCancel: () {
+                            Navigator.of(context).pop();
+                          },
+                          onOk: () {},
+                        ),
+                      );
+                    },
+                  );
+                },
+                rejectOnPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return ReactiveForm(
+                        formGroup: cubit.remarksForm,
+                        child: ApproveRejectDialog(
+                          title: "Reject Leave",
+                          formControlName: "remarks",
+                          onCancel: () {
+                            Navigator.of(context).pop();
+                          },
+                          onOk: () {},
+                        ),
+                      );
+                    },
+                  );
+                },
               ),
               const SizedBox(
                 height: Sizes.s16,
               ),
-              const LeaveApprovalCard(
+              LeaveApprovalCard(
                 hEmployeeName: AppStrings.kEmployeeName,
                 hReason: AppStrings.kReason,
                 hLeaveType: AppStrings.kLeaveType,
@@ -81,11 +160,15 @@ class ManagerLeaveScreen extends StatelessWidget {
                 reason: "Reason for leave",
                 leaveType: "Medical/Casual/WFH",
                 duration: "duration",
+                approveBtnTxt: AppStrings.kApprove,
+                rejectBtnTxt: AppStrings.kReject,
+                approveOnPressed: () {},
+                rejectOnPressed: () {},
               ),
               const SizedBox(
                 height: Sizes.s16,
               ),
-              const LeaveApprovalCard(
+              LeaveApprovalCard(
                 hEmployeeName: AppStrings.kEmployeeName,
                 hReason: AppStrings.kReason,
                 hLeaveType: AppStrings.kLeaveType,
@@ -94,6 +177,10 @@ class ManagerLeaveScreen extends StatelessWidget {
                 reason: "Reason for leave",
                 leaveType: "Medical/Casual/WFH",
                 duration: "duration",
+                approveBtnTxt: AppStrings.kApprove,
+                rejectBtnTxt: AppStrings.kReject,
+                approveOnPressed: () {},
+                rejectOnPressed: () {},
               ),
             ],
           ),

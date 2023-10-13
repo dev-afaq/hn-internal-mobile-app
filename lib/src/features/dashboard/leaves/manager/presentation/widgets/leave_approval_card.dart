@@ -13,6 +13,10 @@ class LeaveApprovalCard extends StatelessWidget {
     required this.reason,
     required this.leaveType,
     required this.duration,
+    required this.approveBtnTxt,
+    required this.rejectBtnTxt,
+    this.approveOnPressed,
+    this.rejectOnPressed,
   });
   final String hEmployeeName;
   final String hReason;
@@ -22,15 +26,23 @@ class LeaveApprovalCard extends StatelessWidget {
   final String reason;
   final String leaveType;
   final String duration;
+  final String approveBtnTxt;
+  final String rejectBtnTxt;
+  final Function()? approveOnPressed;
+  final Function()? rejectOnPressed;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(
+    BuildContext context,
+  ) {
     return Card(
-      elevation: Sizes.s4, // Adjust the elevation for the desired shadow effect
+      elevation: Sizes.s8, // Adjust the elevation for the desired shadow effect
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(
-            Sizes.s24), // Adjust the border radius as needed
+          Sizes.s24,
+        ), // Adjust the border radius as needed
       ),
+      shadowColor: AppColors.greyColor,
       child: Container(
         padding: const EdgeInsets.all(
           Sizes.s12,
@@ -148,6 +160,29 @@ class LeaveApprovalCard extends StatelessWidget {
                       fontSize: FontSizes.s16,
                       fontWeight: FontWeight.w500,
                     ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: Sizes.s12,
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: CustomElevatedButton(
+                    label: rejectBtnTxt,
+                    onPressed: rejectOnPressed,
+                    isOutlined: true,
+                  ),
+                ),
+                const SizedBox(
+                  width: Sizes.s12,
+                ),
+                Expanded(
+                  child: CustomElevatedButton(
+                    label: approveBtnTxt,
+                    onPressed: approveOnPressed,
                   ),
                 ),
               ],

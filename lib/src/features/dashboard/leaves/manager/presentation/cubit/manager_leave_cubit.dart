@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:reactive_forms/reactive_forms.dart';
 
 part 'manager_leave_state.dart';
 
@@ -8,4 +9,11 @@ class ManagerLeaveCubit extends Cubit<ManagerLeaveState> {
       : super(
           const ManagerLeaveState(),
         );
+  final remarksForm = FormGroup(
+    {
+      'remarks': FormControl<String>(
+        validators: [Validators.required],
+      ),
+    },
+  );
 }
