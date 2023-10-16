@@ -80,7 +80,7 @@ class EmpHomeScreen extends StatelessWidget {
                           );
                         },
                         title: AppStrings.kApplyLeave,
-                        description: AppStrings.kApplyLeaveDesc,
+                        description: AppStrings.kApplyLeaveDesc, icon: Assets.leaveIcon.name.png,
                       ),
                     ),
                     Container(
@@ -92,9 +92,14 @@ class EmpHomeScreen extends StatelessWidget {
                     ),
                     Expanded(
                       child: CustomTileHome(
-                        onTap: () {},
-                        title: AppStrings.kApplyReimbursement,
-                        description: AppStrings.kApplyReimbursementDesc,
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            Routes.empExpenseScreen,
+                          );
+                        },
+                        title: AppStrings.kExpenseReimbursement,
+                        description: AppStrings.kApplyReimbursementDesc, icon: Assets.expenseIcon.name.png,
                       ),
                     ),
                   ],

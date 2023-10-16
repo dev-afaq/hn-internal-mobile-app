@@ -11,4 +11,6 @@ class Routes {
   static const String hrLeaveScreen = "hr_leave_screen";
   static const String empLeaveScreen = '/emp_leave_screen';
   static const String managerLeaveScreen = '/manager_leave_screen';
+  static const String empExpenseScreen = 'emp_expense_screen';
+  static const String applyExpenseScreen = 'apply_expense_screen';
 }

@@ -82,6 +82,7 @@ class ManagerHomeScreen extends StatelessWidget {
                         },
                         title: AppStrings.kManageLeaves,
                         description: AppStrings.kManageLeavesDesc,
+                        icon: Assets.leaveIcon.name.png,
                       ),
                     ),
                     Container(
@@ -96,6 +97,7 @@ class ManagerHomeScreen extends StatelessWidget {
                         onTap: () {},
                         title: AppStrings.kManageReimbursement,
                         description: AppStrings.kManageReimbursementDesc,
+                        icon: Assets.expenseIcon.name.png,
                       ),
                     ),
                   ],

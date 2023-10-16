@@ -75,6 +75,7 @@ class FinanceHomeScreen extends StatelessWidget {
                     onTap: () {},
                     title: AppStrings.kManageReimbursement,
                     description: AppStrings.kManageReimbursementDesc,
+                    icon: Assets.expenseIcon.name.png,
                   ),
                 ),
               ],

@@ -15,7 +15,9 @@ class AppStrings {
   static const String kViewProfile = 'View Profile';
   static const String done = "Done";
   static const String pending = "Pending";
-  static const String kToolTip = 'Create new form';
+  static const String kAttachReceipt = "Attach Receipt";
+  static const String kExpenseReimbursement = "Expense Reimbursement";
+  static const String kToolTip = 'Apply New \nReimbursement';
   static const String kDeleteDialogue = 'Are you sure you want to delete?';
   static const String kTitle = 'Title';
   static const String kDate = 'Date';
@@ -43,6 +45,7 @@ class AppStrings {
   static const String kGallery = "Select from Gallery";
   static const String kApplyLeave = "Apply Leave";
   static const String kApplyReimbursement = "Apply Expense Reimbursements";
+  static const String kTrackReimbursement = "Track Expense Reimbursements";
   static const String kManageLeaves = "Manage Leaves";
   static const String kManageReimbursement = "Manage Reimbursements";
   static const String kMyName = "Huzaifa Zameer";

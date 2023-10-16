@@ -76,6 +76,20 @@ class RoutesGenerator {
             child: const ManagerLeaveScreen(),
           ),
         );
+      case Routes.empExpenseScreen:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => EmpExpenseCubit(),
+            child: const EmpExpenseScreen(),
+          ),
+        );
+      case Routes.applyExpenseScreen:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => ApplyExpenseCubit(),
+            child: const ApplyExpenseScreen(),
+          ),
+        );
       default:
         return MaterialPageRoute(
           builder: (context) => const Scaffold(),

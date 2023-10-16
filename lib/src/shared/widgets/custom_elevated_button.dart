@@ -80,6 +80,7 @@ class CustomElevatedButton extends StatelessWidget {
             ),
       child: Text(
         label,
+        textAlign: TextAlign.center,
         style: const TextStyle(
           fontSize: FontSizes.s20,
           fontWeight: FontWeight.bold,

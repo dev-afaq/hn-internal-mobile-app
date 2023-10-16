@@ -80,6 +80,7 @@ class HrHomeScreen extends StatelessWidget {
                     },
                     title: AppStrings.kManageLeaves,
                     description: AppStrings.kManageLeavesDesc,
+                    icon: Assets.leaveIcon.name.png,
                   ),
                 ),
               ],

@@ -1,3 +1,3 @@
-export 'presentation/presentation.dart';
-export 'domain/domain.dart';
-export 'data/data.dart';
+export 'employee/employee.dart';
+export 'finance/finance.dart';
+export 'manager/manager.dart';

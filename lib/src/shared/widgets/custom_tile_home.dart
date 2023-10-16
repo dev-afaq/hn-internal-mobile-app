@@ -8,10 +8,12 @@ class CustomTileHome extends StatelessWidget {
     required this.onTap,
     required this.title,
     required this.description,
+    required this.icon,
   });
   final Function()? onTap;
   final String title;
   final String description;
+  final String icon;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class CustomTileHome extends StatelessWidget {
                 Sizes.s8,
               ),
               child: Image.asset(
-                Assets.leaveIcon.name.png,
+                icon,
                 color: AppColors.primaryColor,
               ),
             ),

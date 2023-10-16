@@ -36,11 +36,11 @@ class LeaveApprovalCard extends StatelessWidget {
     BuildContext context,
   ) {
     return Card(
-      elevation: Sizes.s8, // Adjust the elevation for the desired shadow effect
+      elevation: Sizes.s8,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(
           Sizes.s24,
-        ), // Adjust the border radius as needed
+        ),
       ),
       shadowColor: AppColors.greyColor,
       child: Container(
