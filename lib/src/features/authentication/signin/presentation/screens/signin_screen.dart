@@ -93,7 +93,7 @@ class SignInScreen extends StatelessWidget {
                             label: AppStrings.kLogIn,
                             onPressed: () {
                               Navigator.pushNamedAndRemoveUntil(context,
-                                  Routes.empHomeScreen, (route) => false);
+                                  Routes.financeHomeScreen, (route) => false);
                             },
                           );
                         },
@@ -203,9 +203,14 @@ class SignInScreen extends StatelessWidget {
                         ),
                         TextButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, Routes.signUp);
+                            Navigator.pushNamed(
+                              context,
+                              Routes.signUp,
+                            );
                           },
-                          child: const Text(AppStrings.kSignUp),
+                          child: const Text(
+                            AppStrings.kSignUp,
+                          ),
                         ),
                       ],
                     ),

@@ -27,6 +27,29 @@ class Helpers {
     );
   }
 
+  static Future<void> showPrompt(
+      {required BuildContext context,
+      required String title,
+      required VoidCallback onYes,
+      required VoidCallback onNo,
+      required IconData icon,
+      required String iconLabel,
+      required VoidCallback onTapIcon}) async {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return CustomPrompt(
+          onTapIcon: onTapIcon,
+          title: title,
+          onYes: onYes,
+          onNo: onNo,
+          icon: icon,
+          iconLabel: iconLabel,
+        );
+      },
+    );
+  }
+
   static Future<void> showLogoutDialog({
     required BuildContext context,
     required String title,

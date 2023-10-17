@@ -4,21 +4,21 @@ import 'package:reactive_forms/reactive_forms.dart';
 
 import '../../../../../../src.dart';
 
-class ManagerLeaveScreen extends StatelessWidget {
-  const ManagerLeaveScreen({super.key});
+class ManagerExpenseScreen extends StatelessWidget {
+  const ManagerExpenseScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ManagerLeaveCubit, ManagerLeaveState>(
+    return BlocBuilder<ManagerExpenseCubit, ManagerExpenseState>(
       builder: (context, state) {
-        final cubit = context.read<ManagerLeaveCubit>();
+        final cubit = context.read<ManagerExpenseCubit>();
 
         return Scaffold(
           backgroundColor: AppColors.lightThemeColor[100],
           appBar: AppBar(
             centerTitle: true,
             title: const Text(
-              AppStrings.kManageLeaves,
+              AppStrings.kManageReimbursement,
             ),
             backgroundColor: AppColors.primaryColor,
             foregroundColor: AppColors.whiteColor,
@@ -35,7 +35,7 @@ class ManagerLeaveScreen extends StatelessWidget {
               ),
               const Center(
                 child: CustomHeading(
-                  heading: AppStrings.kLeavesPendingApproval,
+                  heading: AppStrings.kExpensePendingApproval,
                 ),
               ),
               Divider(
@@ -49,15 +49,15 @@ class ManagerLeaveScreen extends StatelessWidget {
               const SizedBox(
                 height: Sizes.s16,
               ),
-              LeaveApprovalCard(
+              ExpenseApprovalCard(
                 hEmployeeName: AppStrings.kEmployeeName,
                 hReason: AppStrings.kReason,
-                hLeaveType: AppStrings.kLeaveType,
-                hDuration: AppStrings.kDuration,
+                hCategory: AppStrings.kCategory,
+                hDate: AppStrings.kDate,
                 employeeName: AppStrings.kMyName,
-                reason: "Reason for leave",
-                leaveType: "Medical/Casual/WFH",
-                duration: "duration",
+                reason: "Reason for Expense Reimbursement",
+                category: "Food/Meeting/Late Night/Travel",
+                date: "duration",
                 approveBtnTxt: AppStrings.kApprove,
                 rejectBtnTxt: AppStrings.kReject,
                 approveOnPressed: () {
@@ -67,7 +67,7 @@ class ManagerLeaveScreen extends StatelessWidget {
                       return ReactiveForm(
                         formGroup: cubit.remarksForm,
                         child: ApproveRejectDialog(
-                          title: "Approve Leave",
+                          title: "Approve Reimbursement",
                           formControlName: "remarks",
                           onCancel: () {
                             Navigator.of(context).pop();
@@ -85,7 +85,7 @@ class ManagerLeaveScreen extends StatelessWidget {
                       return ReactiveForm(
                         formGroup: cubit.remarksForm,
                         child: ApproveRejectDialog(
-                          title: "Reject Leave",
+                          title: "Reject Reimbursement",
                           formControlName: "remarks",
                           onCancel: () {
                             Navigator.of(context).pop();
@@ -100,15 +100,15 @@ class ManagerLeaveScreen extends StatelessWidget {
               const SizedBox(
                 height: Sizes.s16,
               ),
-              LeaveApprovalCard(
+              ExpenseApprovalCard(
                 hEmployeeName: AppStrings.kEmployeeName,
                 hReason: AppStrings.kReason,
-                hLeaveType: AppStrings.kLeaveType,
-                hDuration: AppStrings.kDuration,
+                hCategory: AppStrings.kCategory,
+                hDate: AppStrings.kDate,
                 employeeName: AppStrings.kMyName,
-                reason: "Reason for leave",
-                leaveType: "Medical/Casual/WFH",
-                duration: "duration",
+                reason: "Reason for Expense Reimbursement",
+                category: "Food/Meeting/Late Night/Travel",
+                date: "duration",
                 approveBtnTxt: AppStrings.kApprove,
                 rejectBtnTxt: AppStrings.kReject,
                 approveOnPressed: () {
@@ -118,7 +118,7 @@ class ManagerLeaveScreen extends StatelessWidget {
                       return ReactiveForm(
                         formGroup: cubit.remarksForm,
                         child: ApproveRejectDialog(
-                          title: "Approve Leave",
+                          title: "Approve Reimbursement",
                           formControlName: "remarks",
                           onCancel: () {
                             Navigator.of(context).pop();
@@ -136,7 +136,7 @@ class ManagerLeaveScreen extends StatelessWidget {
                       return ReactiveForm(
                         formGroup: cubit.remarksForm,
                         child: ApproveRejectDialog(
-                          title: "Reject Leave",
+                          title: "Reject Reimbursement",
                           formControlName: "remarks",
                           onCancel: () {
                             Navigator.of(context).pop();
@@ -151,36 +151,104 @@ class ManagerLeaveScreen extends StatelessWidget {
               const SizedBox(
                 height: Sizes.s16,
               ),
-              LeaveApprovalCard(
+              ExpenseApprovalCard(
                 hEmployeeName: AppStrings.kEmployeeName,
                 hReason: AppStrings.kReason,
-                hLeaveType: AppStrings.kLeaveType,
-                hDuration: AppStrings.kDuration,
+                hCategory: AppStrings.kCategory,
+                hDate: AppStrings.kDate,
                 employeeName: AppStrings.kMyName,
-                reason: "Reason for leave",
-                leaveType: "Medical/Casual/WFH",
-                duration: "duration",
+                reason: "Reason for Expense Reimbursement",
+                category: "Food/Meeting/Late Night/Travel",
+                date: "duration",
                 approveBtnTxt: AppStrings.kApprove,
                 rejectBtnTxt: AppStrings.kReject,
-                approveOnPressed: () {},
-                rejectOnPressed: () {},
+                approveOnPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return ReactiveForm(
+                        formGroup: cubit.remarksForm,
+                        child: ApproveRejectDialog(
+                          title: "Approve Reimbursement",
+                          formControlName: "remarks",
+                          onCancel: () {
+                            Navigator.of(context).pop();
+                          },
+                          onOk: () {},
+                        ),
+                      );
+                    },
+                  );
+                },
+                rejectOnPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return ReactiveForm(
+                        formGroup: cubit.remarksForm,
+                        child: ApproveRejectDialog(
+                          title: "Reject Reimbursement",
+                          formControlName: "remarks",
+                          onCancel: () {
+                            Navigator.of(context).pop();
+                          },
+                          onOk: () {},
+                        ),
+                      );
+                    },
+                  );
+                },
               ),
               const SizedBox(
                 height: Sizes.s16,
               ),
-              LeaveApprovalCard(
+              ExpenseApprovalCard(
                 hEmployeeName: AppStrings.kEmployeeName,
                 hReason: AppStrings.kReason,
-                hLeaveType: AppStrings.kLeaveType,
-                hDuration: AppStrings.kDuration,
+                hCategory: AppStrings.kCategory,
+                hDate: AppStrings.kDate,
                 employeeName: AppStrings.kMyName,
-                reason: "Reason for leave",
-                leaveType: "Medical/Casual/WFH",
-                duration: "duration",
+                reason: "Reason for Expense Reimbursement",
+                category: "Food/Meeting/Late Night/Travel",
+                date: "duration",
                 approveBtnTxt: AppStrings.kApprove,
                 rejectBtnTxt: AppStrings.kReject,
-                approveOnPressed: () {},
-                rejectOnPressed: () {},
+                approveOnPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return ReactiveForm(
+                        formGroup: cubit.remarksForm,
+                        child: ApproveRejectDialog(
+                          title: "Approve Reimbursement",
+                          formControlName: "remarks",
+                          onCancel: () {
+                            Navigator.of(context).pop();
+                          },
+                          onOk: () {},
+                        ),
+                      );
+                    },
+                  );
+                },
+                rejectOnPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return ReactiveForm(
+                        formGroup: cubit.remarksForm,
+                        child: ApproveRejectDialog(
+                          title: "Reject Reimbursement",
+                          formControlName: "remarks",
+                          onCancel: () {
+                            Navigator.of(context).pop();
+                          },
+                          onOk: () {},
+                        ),
+                      );
+                    },
+                  );
+                },
               ),
             ],
           ),

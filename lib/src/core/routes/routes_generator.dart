@@ -90,6 +90,20 @@ class RoutesGenerator {
             child: const ApplyExpenseScreen(),
           ),
         );
+      case Routes.managerExpenseScreen:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => ManagerExpenseCubit(),
+            child: const ManagerExpenseScreen(),
+          ),
+        );
+      case Routes.financeExpenseScreen:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => FinanceExpenseCubit(),
+            child: const FinanceExpenseScreen(),
+          ),
+        );
       default:
         return MaterialPageRoute(
           builder: (context) => const Scaffold(),

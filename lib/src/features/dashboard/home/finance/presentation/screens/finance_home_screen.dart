@@ -72,7 +72,12 @@ class FinanceHomeScreen extends StatelessWidget {
                 ),
                 Center(
                   child: CustomTileHome(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context,
+                        Routes.financeExpenseScreen,
+                      );
+                    },
                     title: AppStrings.kManageReimbursement,
                     description: AppStrings.kManageReimbursementDesc,
                     icon: Assets.expenseIcon.name.png,

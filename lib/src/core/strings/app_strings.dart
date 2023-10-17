@@ -70,6 +70,17 @@ class AppStrings {
   static const String kReason = "Reason";
   static const String kApprove = "Approve";
   static const String kReject = "Reject";
-  static const String kPendingApproval = "Leaves Pending For Approval";
+  static const String kExpensePendingApproval =
+      "Reimbursements Pending For Approval";
+  static const String kLeavesPendingApproval = "Leaves Pending For Approval";
   static const String kReasonForLeave = "Reason For Leave";
+  static const String kCategory = "Category";
+  static const String kFood = "Food";
+  static const String kMeeting = "Meeting With Customer";
+  static const String kLateNight = "Late Night";
+  static const String kTravel = "Travel";
+  static const String kCompleted = "Mark as completed";
+  static const String kCompanyPolicyPrompt =
+      "Is this reimbursement in compliance with company policy?";
+  static const String kManagerEmailApp = "Attach Manager's Approval Email";
 }

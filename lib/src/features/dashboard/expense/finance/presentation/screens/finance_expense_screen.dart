@@ -4,14 +4,14 @@ import 'package:reactive_forms/reactive_forms.dart';
 
 import '../../../../../../src.dart';
 
-class ManagerLeaveScreen extends StatelessWidget {
-  const ManagerLeaveScreen({super.key});
+class FinanceExpenseScreen extends StatelessWidget {
+  const FinanceExpenseScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ManagerLeaveCubit, ManagerLeaveState>(
+    return BlocBuilder<FinanceExpenseCubit, FinanceExpenseState>(
       builder: (context, state) {
-        final cubit = context.read<ManagerLeaveCubit>();
+        final cubit = context.read<FinanceExpenseCubit>();
 
         return Scaffold(
           backgroundColor: AppColors.lightThemeColor[100],

@@ -16,10 +16,11 @@ class ApplyExpenseScreen extends StatelessWidget {
       ) {
         final cubit = context.read<ApplyExpenseCubit>();
         return Scaffold(
+          backgroundColor: AppColors.lightThemeColor[100],
           appBar: AppBar(
             centerTitle: true,
             title: const Text(
-              AppStrings.kApplyReimbursement,
+              AppStrings.kExpenseReimbursement,
             ),
             backgroundColor: AppColors.primaryColor,
             foregroundColor: AppColors.whiteColor,
@@ -37,11 +38,11 @@ class ApplyExpenseScreen extends StatelessWidget {
                 ),
                 const Center(
                   child: CustomHeading(
-                    heading: AppStrings.kApplyLeaveHere,
+                    heading: AppStrings.kApplyReimbursement,
                   ),
                 ),
                 const SizedBox(
-                  height: Sizes.s20,
+                  height: Sizes.s24,
                 ),
                 const FieldTitle(
                   title: AppStrings.kTitle,
@@ -50,28 +51,114 @@ class ApplyExpenseScreen extends StatelessWidget {
                   formControlName: 'title',
                 ),
                 const SizedBox(
-                  height: Sizes.s12,
+                  height: Sizes.s20,
                 ),
-                const FieldTitle(title: AppStrings.kDescription),
+                const FieldTitle(
+                  title: AppStrings.kDescription,
+                ),
                 const CustomReactiveTextField(
                   formControlName: 'description',
                   maxLines: 4,
                 ),
                 const SizedBox(
-                  height: Sizes.s12,
+                  height: Sizes.s20,
                 ),
                 const FieldTitle(
                   title: AppStrings.kDate,
-                ),
-                const SizedBox(
-                  width: Sizes.s12,
                 ),
                 const CustomDatePicker(
                   formControl: 'date',
                   readOnly: false,
                 ),
                 const SizedBox(
+                  height: Sizes.s20,
+                ),
+                const FieldTitle(
+                  title: AppStrings.kCategory,
+                ),
+                const Row(
+                  children: [
+                    CustomCheckBox(
+                      formControlName: "food",
+                    ),
+                    SizedBox(
+                      width: Sizes.s20,
+                    ),
+                    Text(
+                      AppStrings.kFood,
+                      style: TextStyle(
+                        color: AppColors.primaryColor,
+                        fontSize: FontSizes.s14,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(
                   height: Sizes.s12,
+                ),
+                const Row(
+                  children: [
+                    CustomCheckBox(
+                      formControlName: "meeting",
+                    ),
+                    SizedBox(
+                      width: Sizes.s20,
+                    ),
+                    Text(
+                      AppStrings.kMeeting,
+                      style: TextStyle(
+                        color: AppColors.primaryColor,
+                        fontSize: FontSizes.s14,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  height: Sizes.s12,
+                ),
+                const Row(
+                  children: [
+                    CustomCheckBox(
+                      formControlName: "late_night",
+                    ),
+                    SizedBox(
+                      width: Sizes.s20,
+                    ),
+                    Text(
+                      AppStrings.kLateNight,
+                      style: TextStyle(
+                        color: AppColors.primaryColor,
+                        fontSize: FontSizes.s14,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  height: Sizes.s12,
+                ),
+                const Row(
+                  children: [
+                    CustomCheckBox(
+                      formControlName: "travel",
+                    ),
+                    SizedBox(
+                      width: Sizes.s20,
+                    ),
+                    Text(
+                      AppStrings.kTravel,
+                      style: TextStyle(
+                        color: AppColors.primaryColor,
+                        fontSize: FontSizes.s14,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  height: Sizes.s20,
                 ),
                 const FieldTitle(
                   title: AppStrings.kAttachReceipt,
@@ -86,51 +173,63 @@ class ApplyExpenseScreen extends StatelessWidget {
                     showModalBottomSheet(
                       context: context,
                       builder: (context) {
-                        return Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            BottomSheetListTile(
-                              icon: Icons.camera_alt,
-                              label: AppStrings.kCamera,
-                              onTap: () {},
-                              color: AppColors.primaryColor,
-                            ),
-                            BottomSheetListTile(
-                              icon: Icons.image,
-                              label: AppStrings.kGallery,
-                              onTap: () {},
-                              color: AppColors.primaryColor,
-                            ),
-                            const Divider(
-                              color: AppColors.greyColor,
-                              height: 5,
-                              thickness: 1,
-                              indent: 50,
-                              endIndent: 50,
-                            ),
-                            BottomSheetListTile(
-                              icon: Icons.clear,
-                              label: AppStrings.kCancel,
-                              onTap: () {},
-                              color: AppColors.redColor,
-                            ),
-                          ],
-                        );
+                        return const PictureBottomSheet();
                       },
                     );
                   },
                   child: const Text(AppStrings.kUploadPic),
                 ),
                 const SizedBox(
-                  height: Sizes.s12,
+                  height: Sizes.s32,
+                ),
+                const Row(
+                  children: [
+                    CustomCheckBox(
+                      formControlName: "completed",
+                    ),
+                    SizedBox(
+                      width: Sizes.s20,
+                    ),
+                    Text(
+                      AppStrings.kCompleted,
+                      style: TextStyle(
+                        color: AppColors.primaryColor,
+                        fontSize: FontSizes.s16,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: Sizes.s32,
                 ),
                 ReactiveFormConsumer(
                   builder: (_, formGroup, __) {
                     return CustomElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Helpers.showPrompt(
+                          context: context,
+                          onTapIcon: () {
+                            showModalBottomSheet(
+                              context: context,
+                              builder: (context) {
+                                return const PictureBottomSheet();
+                              },
+                            );
+                          },
+                          title: AppStrings.kCompanyPolicyPrompt,
+                          onYes: () {},
+                          onNo: () {},
+                          icon: Icons.attach_email,
+                          iconLabel: AppStrings.kManagerEmailApp,
+                        );
+                      },
                       label: AppStrings.kSubmitApplication,
                     );
                   },
+                ),
+                const SizedBox(
+                  height: Sizes.s24,
                 ),
               ],
             ),

@@ -94,7 +94,12 @@ class ManagerHomeScreen extends StatelessWidget {
                     ),
                     Expanded(
                       child: CustomTileHome(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            Routes.managerExpenseScreen,
+                          );
+                        },
                         title: AppStrings.kManageReimbursement,
                         description: AppStrings.kManageReimbursementDesc,
                         icon: Assets.expenseIcon.name.png,

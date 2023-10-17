@@ -16,27 +16,29 @@ class BottomSheetListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(
-              right: Sizes.s12,
-            ),
-            child: Icon(
-              icon,
-              color: color,
-              size: Sizes.s32,
-            ),
-          ),
-          Text(
+      leading: Padding(
+        padding: const EdgeInsets.only(
+          left: Sizes.s12,
+        ),
+        child: Icon(
+          icon,
+          color: color,
+          size: Sizes.s32,
+        ),
+      ),
+      title: Padding(
+        padding: const EdgeInsets.only(
+          right: Sizes.s12,
+        ),
+        child: Center(
+          child: Text(
             label,
             style: TextStyle(
               fontSize: FontSizes.s18,
               color: color,
             ),
           ),
-        ],
+        ),
       ),
       onTap: onTap,
     );
