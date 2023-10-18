@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:reactive_forms/reactive_forms.dart';
 
 import '../../src.dart';
 
@@ -50,18 +49,18 @@ class Helpers {
     );
   }
 
-  static Future<void> showLogoutDialog({
+  static Future<void> showConfirmationDialog({
     required BuildContext context,
     required String title,
-    required VoidCallback onLogout,
+    required VoidCallback onYes,
     required VoidCallback onNo,
   }) async {
     return showDialog<void>(
       context: context,
       builder: (BuildContext context) {
-        return CustomLogoutDialog(
+        return CustomConfirmationDialog(
           title: title,
-          onLogout: onLogout,
+          onYes: onYes,
           onNo: onNo,
         );
       },

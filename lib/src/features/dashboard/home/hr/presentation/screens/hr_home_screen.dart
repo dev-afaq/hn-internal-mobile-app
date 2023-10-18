@@ -4,12 +4,34 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../../src.dart';
 
 class HrHomeScreen extends StatelessWidget {
-  const HrHomeScreen({super.key});
+  const HrHomeScreen({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HrHomeCubit, HrHomeState>(
+    return BlocConsumer<HrHomeCubit, HrHomeState>(
+      listener: (context, state) {
+        switch (state.status) {
+          case RequestStatus.success:
+            Navigator.pushNamed(
+              context,
+              Routes.signIn,
+            );
+            break;
+          case RequestStatus.failure:
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(state.message),
+              ),
+            );
+            break;
+          default:
+            break;
+        }
+      },
       builder: (context, state) {
+        final cubit = context.read<HrHomeCubit>();
         return Scaffold(
           backgroundColor: AppColors.lightThemeColor[100],
           appBar: AppBar(
@@ -30,11 +52,15 @@ class HrHomeScreen extends StatelessWidget {
           ),
           drawer: CustomDrawer(
             onTapLogOut: () {
-              Helpers.showLogoutDialog(
+              Helpers.showConfirmationDialog(
                 context: context,
                 title: AppStrings.kLogoutDialog,
-                onLogout: () {},
-                onNo: () {},
+                onYes: () {
+                  cubit.logOut();
+                },
+                onNo: () {
+                  Navigator.pop(context);
+                },
               );
             },
             onTapProfile: () {},

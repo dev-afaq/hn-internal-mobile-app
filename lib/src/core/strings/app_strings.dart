@@ -2,6 +2,7 @@ class AppStrings {
   AppStrings._();
   static const String kAppTitle = 'HyperNym Internal Mobile App';
   static const String kAppTitleDrawer = 'HyperNym Internal \nMobile App';
+  static const String kLogo = 'logo';
   static const String kCompanyName = 'HyperNym';
   static const String kOr = 'OR';
   static const String kDuration = 'Duration';
@@ -64,6 +65,9 @@ class AppStrings {
   static const String kFrom = "From:";
   static const String kTo = "To:";
   static const String kManager = "Manager";
+  static const String kEmployee = "Employee";
+  static const String kHr = "Hr";
+  static const String kFinance = "Finance";
   static const String kSelectManager = "Select Your Manager";
   static const String kEmployeeName = "Employee name";
   static const String kApprovedBy = "Approved By";
@@ -83,4 +87,5 @@ class AppStrings {
   static const String kCompanyPolicyPrompt =
       "Is this reimbursement in compliance with company policy?";
   static const String kManagerEmailApp = "Attach Manager's Approval Email";
+  static const String kSure ="Are you sure?";
 }

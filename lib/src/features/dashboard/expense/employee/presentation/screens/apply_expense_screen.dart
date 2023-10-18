@@ -9,7 +9,27 @@ class ApplyExpenseScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ApplyExpenseCubit, ApplyExpenseState>(
+    return BlocConsumer<ApplyExpenseCubit, ApplyExpenseState>(
+      listener: (context, state) {
+        switch (state.status) {
+          case RequestStatus.success:
+            Navigator.pushNamed(
+              context,
+              Routes.empHomeScreen,
+            );
+            break;
+          case RequestStatus.failure:
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(state.message),
+              ),
+            );
+            break;
+
+          default:
+            break;
+        }
+      },
       builder: (
         context,
         state,
@@ -207,22 +227,30 @@ class ApplyExpenseScreen extends StatelessWidget {
                   builder: (_, formGroup, __) {
                     return CustomElevatedButton(
                       onPressed: () {
-                        Helpers.showPrompt(
-                          context: context,
-                          onTapIcon: () {
-                            showModalBottomSheet(
-                              context: context,
-                              builder: (context) {
-                                return const PictureBottomSheet();
-                              },
-                            );
-                          },
-                          title: AppStrings.kCompanyPolicyPrompt,
-                          onYes: () {},
-                          onNo: () {},
-                          icon: Icons.attach_email,
-                          iconLabel: AppStrings.kManagerEmailApp,
-                        );
+                        if (cubit.expenseForm.valid) {
+                          Helpers.showPrompt(
+                            context: context,
+                            onTapIcon: () {
+                              showModalBottomSheet(
+                                context: context,
+                                builder: (context) {
+                                  return const PictureBottomSheet();
+                                },
+                              );
+                            },
+                            title: AppStrings.kCompanyPolicyPrompt,
+                            onYes: () {
+                              cubit.submit();
+                            },
+                            onNo: () {
+                              Navigator.pop(context);
+                            },
+                            icon: Icons.attach_email,
+                            iconLabel: AppStrings.kManagerEmailApp,
+                          );
+                        } else {
+                          cubit.expenseForm.markAllAsTouched();
+                        }
                       },
                       label: AppStrings.kSubmitApplication,
                     );

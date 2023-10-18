@@ -9,7 +9,27 @@ class EmpLeaveScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<EmpLeaveCubit, EmpLeaveState>(
+    return BlocConsumer<EmpLeaveCubit, EmpLeaveState>(
+      listener: (context, state) {
+        switch (state.status) {
+          case RequestStatus.success:
+            Navigator.pushNamed(
+              context,
+              Routes.empHomeScreen,
+            );
+            break;
+          case RequestStatus.failure:
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(state.message),
+              ),
+            );
+            break;
+
+          default:
+            break;
+        }
+      },
       builder: (context, state) {
         final cubit = context.read<EmpLeaveCubit>();
         return Scaffold(
@@ -145,7 +165,22 @@ class EmpLeaveScreen extends StatelessWidget {
                 ReactiveFormConsumer(
                   builder: (_, formGroup, __) {
                     return CustomElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        if (cubit.leaveForm.valid) {
+                          Helpers.showConfirmationDialog(
+                            context: context,
+                            title: AppStrings.kSure,
+                            onYes: () {
+                              cubit.submit();
+                            },
+                            onNo: () {
+                              Navigator.pop(context);
+                            },
+                          );
+                        } else {
+                          cubit.leaveForm.markAllAsTouched();
+                        }
+                      },
                       label: AppStrings.kSubmitApplication,
                     );
                   },

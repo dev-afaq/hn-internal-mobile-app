@@ -2,6 +2,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
+import '../../../../../../src.dart';
+
 part 'emp_leave_state.dart';
 
 class EmpLeaveCubit extends Cubit<EmpLeaveState> {
@@ -41,4 +43,9 @@ class EmpLeaveCubit extends Cubit<EmpLeaveState> {
       ),
     },
   );
+  submit() {
+    emit(state.copyWith(
+      status: RequestStatus.success,
+    ));
+  }
 }

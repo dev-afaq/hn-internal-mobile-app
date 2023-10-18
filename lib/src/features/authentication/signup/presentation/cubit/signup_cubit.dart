@@ -26,11 +26,11 @@ class SignUpCubit extends Cubit<SignUpState> {
           Validators.email,
         ],
       ),
-      'picture': FormControl<String>(
-        validators: [
-          Validators.required,
-        ],
-      ),
+      // 'picture': FormControl<String>(
+      //   validators: [
+      //     Validators.required,
+      //   ],
+      // ),
       'number': FormControl<String>(
         validators: [
           Validators.minLength(11),
@@ -48,12 +48,17 @@ class SignUpCubit extends Cubit<SignUpState> {
           Validators.minLength(8),
         ],
       ),
-      'fcmToken': FormControl<String>(
-        value: "dummy token",
+      'user': FormControl<String>(
+        validators: [Validators.required],
       ),
     },
     validators: [
       Validators.mustMatch('password', 'password_confirmation'),
     ],
   );
+  signUp() {
+    emit(state.copyWith(
+      status: RequestStatus.success,
+    ));
+  }
 }

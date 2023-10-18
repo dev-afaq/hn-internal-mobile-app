@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 
 import '../../src.dart';
 
-class CustomLogoutDialog extends StatelessWidget {
-  const CustomLogoutDialog({
+class CustomConfirmationDialog extends StatelessWidget {
+  const CustomConfirmationDialog({
     super.key,
     required this.title,
-    this.onLogout,
+    this.onYes,
     this.onNo,
   });
   final String title;
-  final Function()? onLogout;
+  final Function()? onYes;
   final Function()? onNo;
 
   @override
@@ -32,7 +32,7 @@ class CustomLogoutDialog extends StatelessWidget {
             Expanded(
               child: CustomElevatedButton(
                 label: AppStrings.kYes,
-                onPressed: onLogout,
+                onPressed: onYes,
               ),
             ),
             const SizedBox(

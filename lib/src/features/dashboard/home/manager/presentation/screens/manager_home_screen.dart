@@ -8,8 +8,29 @@ class ManagerHomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ManagerHomeCubit, ManagerHomeState>(
+    return BlocConsumer<ManagerHomeCubit, ManagerHomeState>(
+      listener: (context, state) {
+        switch (state.status) {
+          case RequestStatus.success:
+            Navigator.pushNamed(
+              context,
+              Routes.signIn,
+            );
+            break;
+          case RequestStatus.failure:
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(state.message),
+              ),
+            );
+            break;
+          default:
+            break;
+        }
+      },
       builder: (context, state) {
+        final cubit = context.read<ManagerHomeCubit>();
+
         return Scaffold(
           backgroundColor: AppColors.lightThemeColor[100],
           appBar: AppBar(
@@ -30,11 +51,15 @@ class ManagerHomeScreen extends StatelessWidget {
           ),
           drawer: CustomDrawer(
             onTapLogOut: () {
-              Helpers.showLogoutDialog(
+              Helpers.showConfirmationDialog(
                 context: context,
                 title: AppStrings.kLogoutDialog,
-                onLogout: () {},
-                onNo: () {},
+                onYes: () {
+                  cubit.logOut();
+                },
+                onNo: () {
+                  Navigator.pop(context);
+                },
               );
             },
             onTapProfile: () {},

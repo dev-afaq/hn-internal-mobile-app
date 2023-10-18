@@ -7,8 +7,29 @@ class EmpHomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<EmpHomeCubit, EmpHomeState>(
+    return BlocConsumer<EmpHomeCubit, EmpHomeState>(
+      listener: (context, state) {
+        switch (state.status) {
+          case RequestStatus.success:
+            Navigator.pushNamed(
+              context,
+              Routes.signIn,
+            );
+            break;
+          case RequestStatus.failure:
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(state.message),
+              ),
+            );
+            break;
+
+          default:
+            break;
+        }
+      },
       builder: (context, state) {
+        final cubit = context.read<EmpHomeCubit>();
         return Scaffold(
           backgroundColor: AppColors.lightThemeColor[100],
           appBar: AppBar(
@@ -29,11 +50,15 @@ class EmpHomeScreen extends StatelessWidget {
           ),
           drawer: CustomDrawer(
             onTapLogOut: () {
-              Helpers.showLogoutDialog(
+              Helpers.showConfirmationDialog(
                 context: context,
                 title: AppStrings.kLogoutDialog,
-                onLogout: () {},
-                onNo: () {},
+                onYes: () {
+                  cubit.logOut();
+                },
+                onNo: () {
+                  Navigator.pop(context);
+                },
               );
             },
             onTapProfile: () {},
@@ -80,7 +105,8 @@ class EmpHomeScreen extends StatelessWidget {
                           );
                         },
                         title: AppStrings.kApplyLeave,
-                        description: AppStrings.kApplyLeaveDesc, icon: Assets.leaveIcon.name.png,
+                        description: AppStrings.kApplyLeaveDesc,
+                        icon: Assets.leaveIcon.name.png,
                       ),
                     ),
                     Container(
@@ -99,7 +125,8 @@ class EmpHomeScreen extends StatelessWidget {
                           );
                         },
                         title: AppStrings.kExpenseReimbursement,
-                        description: AppStrings.kApplyReimbursementDesc, icon: Assets.expenseIcon.name.png,
+                        description: AppStrings.kApplyReimbursementDesc,
+                        icon: Assets.expenseIcon.name.png,
                       ),
                     ),
                   ],

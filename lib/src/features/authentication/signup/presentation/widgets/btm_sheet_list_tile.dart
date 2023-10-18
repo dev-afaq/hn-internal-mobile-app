@@ -3,16 +3,19 @@ import 'package:flutter/material.dart';
 import '../../../../../src.dart';
 
 class BottomSheetListTile extends StatelessWidget {
-  const BottomSheetListTile(
-      {super.key,
-      required this.icon,
-      this.color,
-      required this.label,
-      this.onTap});
+  const BottomSheetListTile({
+    super.key,
+    required this.icon,
+    this.color,
+    required this.label,
+    this.onTap,
+    this.splashColor,
+  });
   final IconData icon;
   final Color? color;
   final String label;
   final Function()? onTap;
+  final Color? splashColor;
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -41,6 +44,7 @@ class BottomSheetListTile extends StatelessWidget {
         ),
       ),
       onTap: onTap,
+      splashColor: splashColor,
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../src.dart';
+
 class PictureBottomSheet extends StatelessWidget {
   const PictureBottomSheet({super.key});
 
@@ -32,8 +33,13 @@ class PictureBottomSheet extends StatelessWidget {
         BottomSheetListTile(
           icon: Icons.clear,
           label: AppStrings.kCancel,
-          onTap: () {},
+          onTap: () {
+            Navigator.pop(context);
+          },
           color: AppColors.redColor,
+          splashColor: AppColors.redColor.withOpacity(
+            0.1,
+          ),
         ),
       ],
     );

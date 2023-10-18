@@ -17,7 +17,12 @@ class SplashScreen extends StatelessWidget {
           }
         },
         child: Center(
-          child: Image.asset(Assets.appLogo.name.png),
+          child: Hero(
+            tag: AppStrings.kLogo,
+            child: Image.asset(
+              Assets.appLogo.name.png,
+            ),
+          ),
         ),
       ),
     );

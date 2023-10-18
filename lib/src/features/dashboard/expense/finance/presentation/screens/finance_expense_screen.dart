@@ -18,7 +18,7 @@ class FinanceExpenseScreen extends StatelessWidget {
           appBar: AppBar(
             centerTitle: true,
             title: const Text(
-              AppStrings.kManageLeaves,
+              AppStrings.kManageReimbursement,
             ),
             backgroundColor: AppColors.primaryColor,
             foregroundColor: AppColors.whiteColor,
@@ -35,7 +35,7 @@ class FinanceExpenseScreen extends StatelessWidget {
               ),
               const Center(
                 child: CustomHeading(
-                  heading: AppStrings.kLeavesPendingApproval,
+                  heading: AppStrings.kExpensePendingApproval,
                 ),
               ),
               Divider(
@@ -49,17 +49,16 @@ class FinanceExpenseScreen extends StatelessWidget {
               const SizedBox(
                 height: Sizes.s16,
               ),
-              LeaveApprovalCard(
+              FinanceApprovalCard(
                 hEmployeeName: AppStrings.kEmployeeName,
                 hReason: AppStrings.kReason,
-                hLeaveType: AppStrings.kLeaveType,
-                hDuration: AppStrings.kDuration,
+                hCategory: AppStrings.kCategory,
+                hDate: AppStrings.kDate,
                 employeeName: AppStrings.kMyName,
-                reason: "Reason for leave",
-                leaveType: "Medical/Casual/WFH",
-                duration: "duration",
+                reason: "Reason for Reimbursement",
+                category: "Meeting/Food/Late Night/Travel",
+                date: "date",
                 approveBtnTxt: AppStrings.kApprove,
-                rejectBtnTxt: AppStrings.kReject,
                 approveOnPressed: () {
                   showDialog(
                     context: context,
@@ -67,25 +66,7 @@ class FinanceExpenseScreen extends StatelessWidget {
                       return ReactiveForm(
                         formGroup: cubit.remarksForm,
                         child: ApproveRejectDialog(
-                          title: "Approve Leave",
-                          formControlName: "remarks",
-                          onCancel: () {
-                            Navigator.of(context).pop();
-                          },
-                          onOk: () {},
-                        ),
-                      );
-                    },
-                  );
-                },
-                rejectOnPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return ReactiveForm(
-                        formGroup: cubit.remarksForm,
-                        child: ApproveRejectDialog(
-                          title: "Reject Leave",
+                          title: "Approve & Release",
                           formControlName: "remarks",
                           onCancel: () {
                             Navigator.of(context).pop();
@@ -100,17 +81,16 @@ class FinanceExpenseScreen extends StatelessWidget {
               const SizedBox(
                 height: Sizes.s16,
               ),
-              LeaveApprovalCard(
+              FinanceApprovalCard(
                 hEmployeeName: AppStrings.kEmployeeName,
                 hReason: AppStrings.kReason,
-                hLeaveType: AppStrings.kLeaveType,
-                hDuration: AppStrings.kDuration,
+                hCategory: AppStrings.kCategory,
+                hDate: AppStrings.kDate,
                 employeeName: AppStrings.kMyName,
-                reason: "Reason for leave",
-                leaveType: "Medical/Casual/WFH",
-                duration: "duration",
+                reason: "Reason for Reimbursement",
+                category: "Meeting/Food/Late Night/Travel",
+                date: "date",
                 approveBtnTxt: AppStrings.kApprove,
-                rejectBtnTxt: AppStrings.kReject,
                 approveOnPressed: () {
                   showDialog(
                     context: context,
@@ -118,7 +98,7 @@ class FinanceExpenseScreen extends StatelessWidget {
                       return ReactiveForm(
                         formGroup: cubit.remarksForm,
                         child: ApproveRejectDialog(
-                          title: "Approve Leave",
+                          title: "Approve & Release",
                           formControlName: "remarks",
                           onCancel: () {
                             Navigator.of(context).pop();
@@ -129,14 +109,28 @@ class FinanceExpenseScreen extends StatelessWidget {
                     },
                   );
                 },
-                rejectOnPressed: () {
+              ),
+              const SizedBox(
+                height: Sizes.s16,
+              ),
+              FinanceApprovalCard(
+                hEmployeeName: AppStrings.kEmployeeName,
+                hReason: AppStrings.kReason,
+                hCategory: AppStrings.kCategory,
+                hDate: AppStrings.kDate,
+                employeeName: AppStrings.kMyName,
+                reason: "Reason for Reimbursement",
+                category: "Meeting/Food/Late Night/Travel",
+                date: "date",
+                approveBtnTxt: AppStrings.kApprove,
+                approveOnPressed: () {
                   showDialog(
                     context: context,
                     builder: (BuildContext context) {
                       return ReactiveForm(
                         formGroup: cubit.remarksForm,
                         child: ApproveRejectDialog(
-                          title: "Reject Leave",
+                          title: "Approve & Release",
                           formControlName: "remarks",
                           onCancel: () {
                             Navigator.of(context).pop();
@@ -151,36 +145,34 @@ class FinanceExpenseScreen extends StatelessWidget {
               const SizedBox(
                 height: Sizes.s16,
               ),
-              LeaveApprovalCard(
+              FinanceApprovalCard(
                 hEmployeeName: AppStrings.kEmployeeName,
                 hReason: AppStrings.kReason,
-                hLeaveType: AppStrings.kLeaveType,
-                hDuration: AppStrings.kDuration,
+                hCategory: AppStrings.kCategory,
+                hDate: AppStrings.kDate,
                 employeeName: AppStrings.kMyName,
-                reason: "Reason for leave",
-                leaveType: "Medical/Casual/WFH",
-                duration: "duration",
+                reason: "Reason for Reimbursement",
+                category: "Meeting/Food/Late Night/Travel",
+                date: "date",
                 approveBtnTxt: AppStrings.kApprove,
-                rejectBtnTxt: AppStrings.kReject,
-                approveOnPressed: () {},
-                rejectOnPressed: () {},
-              ),
-              const SizedBox(
-                height: Sizes.s16,
-              ),
-              LeaveApprovalCard(
-                hEmployeeName: AppStrings.kEmployeeName,
-                hReason: AppStrings.kReason,
-                hLeaveType: AppStrings.kLeaveType,
-                hDuration: AppStrings.kDuration,
-                employeeName: AppStrings.kMyName,
-                reason: "Reason for leave",
-                leaveType: "Medical/Casual/WFH",
-                duration: "duration",
-                approveBtnTxt: AppStrings.kApprove,
-                rejectBtnTxt: AppStrings.kReject,
-                approveOnPressed: () {},
-                rejectOnPressed: () {},
+                approveOnPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return ReactiveForm(
+                        formGroup: cubit.remarksForm,
+                        child: ApproveRejectDialog(
+                          title: "Approve & Release",
+                          formControlName: "remarks",
+                          onCancel: () {
+                            Navigator.of(context).pop();
+                          },
+                          onOk: () {},
+                        ),
+                      );
+                    },
+                  );
+                },
               ),
             ],
           ),
