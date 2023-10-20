@@ -102,7 +102,16 @@ class EmpLeaveScreen extends StatelessWidget {
                 const FieldTitle(
                   title: AppStrings.kDuration,
                 ),
+                //       if (value.value != null &&
+                //   cubit.leaveForm.control("to_date").value !=
+                //       null) {
+                //   final toVal = DateTime.parse(value.value as String);
+                //   final fromVal = DateTime.parse(
+                //     cubit.leaveForm.control('to_date').value,
+                //   );
+                // }
                 const Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       AppStrings.kFrom,

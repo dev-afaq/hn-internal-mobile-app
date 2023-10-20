@@ -42,10 +42,19 @@ class EmpLeaveCubit extends Cubit<EmpLeaveState> {
         ],
       ),
     },
+    validators: [
+      const DateComparisonValidator(
+        controlName: "from_date",
+        mustBeforeControlName: "to_date",
+        markAsDirty: true,
+      ),
+    ],
   );
   submit() {
-    emit(state.copyWith(
-      status: RequestStatus.success,
-    ));
+    emit(
+      state.copyWith(
+        status: RequestStatus.success,
+      ),
+    );
   }
 }

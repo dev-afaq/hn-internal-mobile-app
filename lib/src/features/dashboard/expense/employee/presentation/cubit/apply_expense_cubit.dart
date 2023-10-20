@@ -42,8 +42,10 @@ class ApplyExpenseCubit extends Cubit<ApplyExpenseState> {
     },
   );
   submit() {
-    emit(state.copyWith(
-      status: RequestStatus.success,
-    ));
+    emit(
+      state.copyWith(
+        status: RequestStatus.success,
+      ),
+    );
   }
 }

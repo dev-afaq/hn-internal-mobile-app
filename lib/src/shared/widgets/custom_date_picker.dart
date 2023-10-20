@@ -46,13 +46,20 @@ class CustomDateTimeValueAccessor extends ControlValueAccessor<String, String> {
   final DateFormat dateTimeFormat;
 
   CustomDateTimeValueAccessor({DateFormat? dateTimeFormat})
-      : dateTimeFormat = dateTimeFormat ?? DateFormat('yyyy-MM-dd');
+      : dateTimeFormat = dateTimeFormat ??
+            DateFormat(
+              'yyyy-MM-dd',
+            );
 
   @override
   String modelToViewValue(String? modelValue) {
     return modelValue == null || modelValue == ''
         ? ''
-        : dateTimeFormat.format(DateTime.parse(modelValue));
+        : dateTimeFormat.format(
+            DateTime.parse(
+              modelValue,
+            ),
+          );
   }
 
   @override
