@@ -1,16 +1,24 @@
 class AppStrings {
   AppStrings._();
-  static const String kAppTitle = 'Hypernym Internal Mobile App';
+  static const String kAppTitle = 'HyperNym Internal Mobile App';
+  static const String kAppTitleDrawer = 'HyperNym Internal \nMobile App';
+  static const String kLogo = 'logo';
+  static const String kCompanyName = 'HyperNym';
   static const String kOr = 'OR';
+  static const String kDuration = 'Duration';
   static const String kSignIn = 'Sign In';
   static const String kFaceIdLogIn = 'Login with Face ID';
   static const String kFaceIdAuth = "Face ID Authentication";
   static const String kSignUp = 'Sign Up';
   static const String kLogIn = 'Log In';
   static const String kLogOut = 'Log Out';
+  static const String kLeaveType = 'Leave Type';
+  static const String kViewProfile = 'View Profile';
   static const String done = "Done";
   static const String pending = "Pending";
-  static const String kToolTip = 'Create new form';
+  static const String kAttachReceipt = "Attach Receipt";
+  static const String kExpenseReimbursement = "Expense Reimbursement";
+  static const String kToolTip = 'Apply New \nReimbursement';
   static const String kDeleteDialogue = 'Are you sure you want to delete?';
   static const String kTitle = 'Title';
   static const String kDate = 'Date';
@@ -22,6 +30,8 @@ class AppStrings {
   static const String kEnterEmail = "Enter your email";
   static const String kEnterPassword = "Enter Password";
   static const String kYes = "Yes";
+  static const String kSubmitApplication = "Submit Application";
+  static const String kCancel = "Cancel";
   static const String kNo = "No";
   static const String kOk = "OK";
   static const String kUsername = "@username";
@@ -32,4 +42,50 @@ class AppStrings {
   static const String kUploadPic = "Upload Picture";
   static const String kUseFaceId = "Use Face ID to Login";
   static const String kUseFingerPrint = "Use Finger Print to Login";
+  static const String kCamera = "Take Picture from Camera";
+  static const String kGallery = "Select from Gallery";
+  static const String kApplyLeave = "Apply Leave";
+  static const String kApplyReimbursement = "Apply Expense Reimbursements";
+  static const String kTrackReimbursement = "Track Expense Reimbursements";
+  static const String kManageLeaves = "Manage Leaves";
+  static const String kManageReimbursement = "Manage Reimbursements";
+  static const String kMyName = "Huzaifa Zameer";
+  static const String kApplyLeaveDesc =
+      "Tap to apply leave and describe your issue well";
+  static const String kApplyReimbursementDesc =
+      "Tap to apply reimbursements and describe your issue well";
+  static const String kManageLeavesDesc = "Tap to see leave applications";
+  static const String kManageReimbursementDesc =
+      "Tap to see reimbursement applications";
+  static const String kLeavesSummary = "Leaves Summary";
+  static const String kTotalLeaves = "Total Leaves";
+  static const String kHi = "Hi,";
+  static const String kAvailableLeaves = "Available Leaves";
+  static const String kApplyLeaveHere = "Apply Your Leave Here";
+  static const String kFrom = "From:";
+  static const String kTo = "To:";
+  static const String kManager = "Manager";
+  static const String kEmployee = "Employee";
+  static const String kHr = "Hr";
+  static const String kFinance = "Finance";
+  static const String kSelectManager = "Select Your Manager";
+  static const String kEmployeeName = "Employee name";
+  static const String kApprovedBy = "Approved By";
+  static const String kReason = "Reason";
+  static const String kApprove = "Approve";
+  static const String kReject = "Reject";
+  static const String kExpensePendingApproval =
+      "Reimbursements Pending For Approval";
+  static const String kLeavesPendingApproval = "Leaves Pending For Approval";
+  static const String kReasonForLeave = "Reason For Leave";
+  static const String kCategory = "Category";
+  static const String kFood = "Food";
+  static const String kMeeting = "Meeting With Customer";
+  static const String kLateNight = "Late Night";
+  static const String kTravel = "Travel";
+  static const String kCompleted = "Mark as completed";
+  static const String kCompanyPolicyPrompt =
+      "Is this reimbursement in compliance with company policy?";
+  static const String kManagerEmailApp = "Attach Manager's Approval Email";
+  static const String kSure ="Are you sure?";
 }

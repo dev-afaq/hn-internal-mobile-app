@@ -13,8 +13,24 @@ class SignInScreen extends StatelessWidget {
       listener: (context, state) {
         switch (state.status) {
           case RequestStatus.success:
-            Navigator.pushNamedAndRemoveUntil(
-                context, Routes.homeScreen, (route) => false);
+            final cubit = context.read<SignInCubit>();
+            if (cubit.signInForm.control('user').value ==
+                AppStrings.kEmployee) {
+              Navigator.pushNamedAndRemoveUntil(
+                  context, Routes.empHomeScreen, (route) => false);
+            }
+            if (cubit.signInForm.control('user').value == AppStrings.kFinance) {
+              Navigator.pushNamedAndRemoveUntil(
+                  context, Routes.financeHomeScreen, (route) => false);
+            }
+            if (cubit.signInForm.control('user').value == AppStrings.kManager) {
+              Navigator.pushNamedAndRemoveUntil(
+                  context, Routes.managerHomeScreen, (route) => false);
+            }
+            if (cubit.signInForm.control('user').value == AppStrings.kHr) {
+              Navigator.pushNamedAndRemoveUntil(
+                  context, Routes.hrHomeScreen, (route) => false);
+            }
             break;
           case RequestStatus.failure:
             ScaffoldMessenger.of(context).showSnackBar(
@@ -36,7 +52,7 @@ class SignInScreen extends StatelessWidget {
               children: [
                 ListView(
                   padding: const EdgeInsets.only(
-                    left: Sizes.s20,
+                    left: Sizes.s24,
                     right: Sizes.s32,
                   ),
                   children: [
@@ -44,8 +60,11 @@ class SignInScreen extends StatelessWidget {
                       alignment: Alignment.topRight,
                       height: Sizes.s168,
                       width: Sizes.s168,
-                      child: Image.asset(
-                        Assets.appLogo.name.png,
+                      child: Hero(
+                        tag: AppStrings.kLogo,
+                        child: Image.asset(
+                          Assets.appLogo.name.png,
+                        ),
                       ),
                     ),
                     const Text(
@@ -65,9 +84,31 @@ class SignInScreen extends StatelessWidget {
                     const SizedBox(
                       height: Sizes.s16,
                     ),
-                    const CustomReactiveTextField(
+                    CustomReactiveTextField(
                       formControlName: 'password',
                       hintText: AppStrings.kEnterPassword,
+                      obscureText: state.obscureText,
+                      suffixIcon: InkWell(
+                        onTap: () {
+                          cubit.passwordHideShow();
+                        },
+                        child: Icon(
+                          state.obscureText
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: Sizes.s16,
+                    ),
+                    const LoginDropdown(
+                      formControlName: 'user',
+                      hint: "Role",
+                      item1: AppStrings.kFinance,
+                      item2: AppStrings.kEmployee,
+                      item3: AppStrings.kManager,
+                      item4: AppStrings.kHr,
                     ),
                     const SizedBox(
                       height: Sizes.s16,
@@ -80,7 +121,13 @@ class SignInScreen extends StatelessWidget {
                         builder: (_, formGroup, __) {
                           return CustomElevatedButton(
                             label: AppStrings.kLogIn,
-                            onPressed: () {},
+                            onPressed: () {
+                              if (cubit.signInForm.valid) {
+                                cubit.signIn();
+                              } else {
+                                cubit.signInForm.markAllAsTouched();
+                              }
+                            },
                           );
                         },
                       ),
@@ -134,12 +181,22 @@ class SignInScreen extends StatelessWidget {
                         ? Column(
                             children: [
                               InkWell(
+                                customBorder: const CircleBorder(),
                                 onTap: () {},
-                                child: Image.asset(
-                                  Assets.faceId.name.png,
-                                  color: AppColors.primaryColor,
-                                  height: Sizes.s88,
-                                  width: Sizes.s88,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    border: Border.all(
+                                      color: AppColors.primaryColor,
+                                      width: Sizes.s2,
+                                    ),
+                                  ),
+                                  child: Image.asset(
+                                    Assets.faceId.name.png,
+                                    color: AppColors.primaryColor,
+                                    height: Sizes.s88,
+                                    width: Sizes.s88,
+                                  ),
                                 ),
                               ),
                               const SizedBox(
@@ -156,12 +213,22 @@ class SignInScreen extends StatelessWidget {
                         : Column(
                             children: [
                               InkWell(
+                                customBorder: const CircleBorder(),
                                 onTap: () {},
-                                child: Image.asset(
-                                  Assets.fingerPrint.name.png,
-                                  color: AppColors.primaryColor,
-                                  height: Sizes.s88,
-                                  width: Sizes.s88,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    border: Border.all(
+                                      color: AppColors.primaryColor,
+                                      width: Sizes.s2,
+                                    ),
+                                  ),
+                                  child: Image.asset(
+                                    Assets.fingerPrint.name.png,
+                                    color: AppColors.primaryColor,
+                                    height: Sizes.s88,
+                                    width: Sizes.s88,
+                                  ),
                                 ),
                               ),
                               const SizedBox(
@@ -189,9 +256,14 @@ class SignInScreen extends StatelessWidget {
                         ),
                         TextButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, Routes.signUp);
+                            Navigator.pushNamed(
+                              context,
+                              Routes.signUp,
+                            );
                           },
-                          child: const Text(AppStrings.kSignUp),
+                          child: const Text(
+                            AppStrings.kSignUp,
+                          ),
                         ),
                       ],
                     ),

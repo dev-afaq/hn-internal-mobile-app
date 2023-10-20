@@ -12,16 +12,21 @@ class CustomReactiveTextField extends StatelessWidget {
     this.valueAccessor,
     this.hintText = "",
     this.keyboardType,
+    this.prefixIcon,
+    this.suffixIcon,
+    this.obscureText,
   });
 
   final TextInputType? keyboardType;
+  final Icon? prefixIcon;
+  final Widget? suffixIcon;
   final bool readOnly;
   final Function(FormControl)? onTap;
   final ControlValueAccessor<String, String>? valueAccessor;
   final String formControlName;
   final String hintText;
   final int maxLines;
-
+  final bool? obscureText;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -30,36 +35,45 @@ class CustomReactiveTextField extends StatelessWidget {
         cursorColor: AppColors.primaryColor,
         formControlName: formControlName,
         keyboardType: keyboardType,
+        obscureText: obscureText ?? false,
         decoration: InputDecoration(
           enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: AppColors.greyColor),
             borderRadius: BorderRadius.all(
-              Radius.circular(Sizes.s32),
+              Radius.circular(
+                Sizes.s16,
+              ),
             ),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(Sizes.s32),
+            borderRadius: BorderRadius.circular(
+              Sizes.s16,
+            ),
             borderSide: BorderSide(
               color: readOnly ? AppColors.greyColor : AppColors.primaryColor,
             ),
           ),
           disabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(Sizes.s32),
+            borderRadius: BorderRadius.circular(
+              Sizes.s16,
+            ),
             borderSide: const BorderSide(
               color: AppColors.greyColor,
             ),
           ),
           errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(Sizes.s32),
+            borderRadius: BorderRadius.circular(
+              Sizes.s16,
+            ),
             borderSide: const BorderSide(color: AppColors.redColor),
           ),
           focusedErrorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(Sizes.s32),
+            borderRadius: BorderRadius.circular(
+              Sizes.s16,
+            ),
             borderSide: const BorderSide(color: AppColors.redColor),
           ),
-          suffixIcon: (formControlName == 'date')
-              ? const Icon(Icons.calendar_month)
-              : null,
+          suffixIcon: suffixIcon,
           hintText: hintText,
         ),
         maxLines: maxLines,

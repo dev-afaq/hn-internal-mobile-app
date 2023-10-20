@@ -23,6 +23,26 @@ class SignInCubit extends Cubit<SignInState> {
           Validators.required,
         ],
       ),
+      'user': FormControl<String>(
+        validators: [
+          Validators.required,
+        ],
+      ),
     },
   );
+  passwordHideShow() {
+    emit(
+      state.copyWith(
+        obscureText: !state.obscureText,
+      ),
+    );
+  }
+
+  signIn() {
+    emit(
+      state.copyWith(
+        status: RequestStatus.success,
+      ),
+    );
+  }
 }

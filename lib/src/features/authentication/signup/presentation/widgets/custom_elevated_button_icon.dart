@@ -21,17 +21,17 @@ class CustomElevatedButtonIcon extends StatelessWidget {
       icon: icon,
       style: ButtonStyle(
         minimumSize: const MaterialStatePropertyAll(
-          Size.fromHeight(48),
+          Size.fromHeight(Sizes.s48),
         ),
         foregroundColor: const MaterialStatePropertyAll(AppColors.primaryColor),
         backgroundColor: MaterialStatePropertyAll(color),
         shape: MaterialStatePropertyAll(
           RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(Sizes.s16),
           ),
         ),
         padding: const MaterialStatePropertyAll(
-          EdgeInsets.all(20),
+          EdgeInsets.all(Sizes.s20),
         ),
       ),
     );

@@ -13,7 +13,33 @@ class SignUpScreen extends StatelessWidget {
       listener: (
         context,
         state,
-      ) {},
+      ) {
+        final cubit = context.read<SignUpCubit>();
+        switch (state.status) {
+          case RequestStatus.success:
+            Helpers.showCustomDialog(
+              context: context,
+              title: AppStrings.kVerifyEmail,
+              contentText: AppStrings.kEmailSent,
+              buttonText: AppStrings.kOk,
+              contentBelow: cubit.signUpForm.control('email').value,
+              onPressed: () {
+                Navigator.pushNamedAndRemoveUntil(
+                    context, Routes.signIn, (route) => false);
+              },
+            );
+            break;
+          case RequestStatus.failure:
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(state.message),
+              ),
+            );
+            break;
+          default:
+            break;
+        }
+      },
       builder: (
         context,
         state,
@@ -34,8 +60,11 @@ class SignUpScreen extends StatelessWidget {
                       alignment: Alignment.topRight,
                       height: Sizes.s168,
                       width: Sizes.s168,
-                      child: Image.asset(
-                        Assets.appLogo.name.png,
+                      child: Hero(
+                        tag: AppStrings.kLogo,
+                        child: Image.asset(
+                          Assets.appLogo.name.png,
+                        ),
                       ),
                     ),
                     const Text(
@@ -68,40 +97,18 @@ class SignUpScreen extends StatelessWidget {
                                   showModalBottomSheet(
                                     context: context,
                                     builder: (context) {
-                                      return Column(
+                                      return const Column(
                                         mainAxisSize: MainAxisSize.min,
                                         children: <Widget>[
-                                          BottomSheetListTile(
-                                            icon: Icons.camera_alt,
-                                            label: "Take Picture from Camera",
-                                            onTap: () {},
-                                            color: AppColors.primaryColor,
-                                          ),
-                                          BottomSheetListTile(
-                                            icon: Icons.image,
-                                            label: "Select from Gallery",
-                                            onTap: () {},
-                                            color: AppColors.primaryColor,
-                                          ),
-                                          const Divider(
-                                            color: AppColors.greyColor,
-                                            height: 5,
-                                            thickness: 1,
-                                            indent: 50,
-                                            endIndent: 50,
-                                          ),
-                                          BottomSheetListTile(
-                                            icon: Icons.clear,
-                                            label: "Cancel",
-                                            onTap: () {},
-                                            color: AppColors.redColor,
-                                          ),
+                                          PictureBottomSheet(),
                                         ],
                                       );
                                     },
                                   );
                                 },
-                                child: const Text(AppStrings.kUploadPic),
+                                child: const Text(
+                                  AppStrings.kUploadPic,
+                                ),
                               ),
                             ],
                           ),
@@ -144,6 +151,17 @@ class SignUpScreen extends StatelessWidget {
                     const SizedBox(
                       height: Sizes.s16,
                     ),
+                    const LoginDropdown(
+                      formControlName: 'user',
+                      hint: "Role",
+                      item1: AppStrings.kFinance,
+                      item2: AppStrings.kEmployee,
+                      item3: AppStrings.kManager,
+                      item4: AppStrings.kHr,
+                    ),
+                    const SizedBox(
+                      height: Sizes.s16,
+                    ),
                     const CustomReactiveTextField(
                       formControlName: 'password',
                       hintText: AppStrings.kEnterPassword,
@@ -166,7 +184,13 @@ class SignUpScreen extends StatelessWidget {
                         builder: (_, formGroup, __) {
                           return CustomElevatedButton(
                             label: AppStrings.kSignUp,
-                            onPressed: () {},
+                            onPressed: () {
+                              if (cubit.signUpForm.valid) {
+                                cubit.signUp();
+                              } else {
+                                cubit.signUpForm.markAllAsTouched();
+                              }
+                            },
                           );
                         },
                       ),
